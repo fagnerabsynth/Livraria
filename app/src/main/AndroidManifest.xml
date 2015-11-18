@@ -12,7 +12,7 @@
             android:label="@string/title_activity_manutencao_do_livro"></activity>
         <activity
             android:name=".Inicial"
-            android:label="@string/title_activity_inicial">
+            android:label="Inicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
