@@ -10,15 +10,7 @@
         <activity
             android:name=".Views.ManutencaoDoLivro"
             android:label="@string/title_activity_manutencao_do_livro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
-            android:name=".Inicial"
-            android:label="@string/title_activity_inicial"></activity>
     </application>
 
 </manifest>
