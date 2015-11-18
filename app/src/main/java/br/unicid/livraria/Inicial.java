@@ -1,17 +1,25 @@
 package br.unicid.livraria;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Inicial extends AppCompatActivity {
+public class Inicial extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicial);
+        ProximaPagina();
     }
+
+    private void ProximaPagina() {
+        Intent i = new Intent(getApplicationContext(), Principal.class);
+        startActivity(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
