@@ -9,15 +9,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Views.ManutencaoDoLivro"
-            android:label="@string/title_activity_manutencao_do_livro"></activity>
-        <activity
-            android:name=".Inicial"
-            android:label="Inicial">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_manutencao_do_livro">
         </activity>
     </application>
 
