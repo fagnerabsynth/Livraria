@@ -43,11 +43,12 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-
+    public void onCreate(SQLiteDatabase dbA) {
+        db = dbA;
 
         //Cria tabela dos usuarios
-        String query1 = "Create table " + TABELA_USUARIOS + " (id integer primary key autoincrement, usuario text not null, senha text not null )";
+        //adicionar o valor unique para impedir usuarios com o menos login... deixa de modo unico
+        String query1 = "Create table " + TABELA_USUARIOS + " (id integer primary key autoincrement, usuario text not null unique, senha text not null )";
         db.execSQL(query1);
 
         //adiciona o usuario admin e a senha admin
