@@ -109,17 +109,12 @@ public class DataBase extends SQLiteOpenHelper {
         //FIM DA TABELA ALUNO
 
 
-
-
-
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-
 
     //verifica o login do usuario
     public boolean login(String usuario, String senha) {
