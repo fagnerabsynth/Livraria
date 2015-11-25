@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Fagner on 11/11/2015.
@@ -43,11 +45,14 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase dbA) {
-        db = dbA;
+    public void onCreate(SQLiteDatabase db) {
+        this.db = db;
+
+        //INCIO DA TABELA USUARIOS
+
 
         //Cria tabela dos usuarios
-        //adicionar o valor unique para impedir usuarios com o menos login... deixa de modo unico
+        //adicionei o valor unique para impedir usuarios com o menos login... deixa de modo unico
         String query1 = "Create table " + TABELA_USUARIOS + " (id integer primary key autoincrement, usuario text not null unique, senha text not null )";
         db.execSQL(query1);
 
@@ -57,6 +62,52 @@ public class DataBase extends SQLiteOpenHelper {
             String[] dadosAdmin = {"admin", md5("admin")};
             db.execSQL("Insert into " + TABELA_USUARIOS + "(email,senha) values (?,?)", dadosAdmin);
         }
+
+        //FIM DA TABELA USUARIOS
+
+
+        //INCIO DA TABELA CATEGORIA
+
+        //Cria a tabela categoria
+        String query2 = "Create table " + TABELA_CATEGORIA + " (id integer primary key autoincrement, categoria text not null unique )";
+        db.execSQL(query2);
+
+        // vasculha para ver se o banco de dados esta vazio para inserir os alunos
+        rs = db.rawQuery("SELECT * FROM " + TABELA_CATEGORIA, null);
+        if (rs.getCount() == 0) {
+            List<String[]> categoria = new ArrayList<String[]>();
+            categoria.add(new String[]{"Açao"});
+            categoria.add(new String[]{"Ficção cientifica"});
+            for (String[] m : categoria) {
+                db.execSQL("Insert into " + TABELA_USUARIOS + "(nome,ca,imagem) values (?)", m);
+            }
+        }
+
+        //FIM DA TABELA CATEGORIA
+
+
+        //INCIO DA TABELA ALUNO
+
+        //Cria a tabela alunos
+        String query3 = "Create table " + TABELA_ALUNOS + " (id integer primary key autoincrement, nome text not null ,ca text not null, imagem text not null )";
+        db.execSQL(query3);
+
+        // vasculha para ver se o banco de dados esta vazio para inserir os alunos
+        rs = db.rawQuery("SELECT * FROM " + TABELA_ALUNOS, null);
+
+        if (rs.getCount() == 0) {
+            //coloca os itens dentro de um array
+            List<String[]> alunos = new ArrayList<String[]>();
+            //adiciona os alunos rg e imagem do drawable
+            alunos.add(new String[]{"Ricardo Fagner Castelo Bracno", "14026201", "fagner"});
+            //da um loop p inserir cada aluno na tabela
+            for (String[] x : alunos) {
+                db.execSQL("Insert into " + TABELA_USUARIOS + "(nome,ca,imagem) values (?,?,?)", x);
+            }
+        }
+
+        //FIM DA TABELA ALUNO
+
 
 
 
@@ -72,7 +123,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     //verifica o login do usuario
     public boolean login(String usuario, String senha) {
-        db = this.getWritableDatabase();
+        // db = this.getWritableDatabase();
         String[] dados = {usuario, md5(senha)};
         Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where usuario = ? and senha = ?", dados);
         return rs.getCount() == 1;
