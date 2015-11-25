@@ -79,7 +79,7 @@ public class DataBase extends SQLiteOpenHelper {
             categoria.add(new String[]{"Açao"});
             categoria.add(new String[]{"Ficção cientifica"});
             for (String[] m : categoria) {
-                db.execSQL("Insert into " + TABELA_USUARIOS + "(nome,ca,imagem) values (?)", m);
+                db.execSQL("Insert into " + TABELA_CATEGORIA + "(categoria) values (?)", m);
             }
         }
 
