@@ -68,13 +68,14 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
+
     //verifica o login do usuario
     public boolean login(String usuario, String senha) {
         db = this.getWritableDatabase();
-
-        return false;
+        String[] dados = {usuario, md5(senha)};
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where usuario = ? and senha = ?", dados);
+        return rs.getCount() == 1;
     }
-
 
 
 }
