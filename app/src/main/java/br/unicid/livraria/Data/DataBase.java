@@ -47,7 +47,7 @@ public class DataBase extends SQLiteOpenHelper {
         db = dbA;
 
         //Cria tabela dos usuarios
-        //adicionar o valor unique para impedir usuarios com o menos login... deixa de modo unico
+        //adicionei o valor unique para impedir usuarios com o menos login... deixa de modo unico
         String query1 = "Create table " + TABELA_USUARIOS + " (id integer primary key autoincrement, usuario text not null unique, senha text not null )";
         db.execSQL(query1);
 
