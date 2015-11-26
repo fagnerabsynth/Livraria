@@ -10,4 +10,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_administracao">Administracao</string>
     <string name="title_activity_manutencao_da_categoria">ManutencaoDaCategoria</string>
+    <string name="title_activity_cadastro_categoria">CadastroCategoria</string>
 </resources>
