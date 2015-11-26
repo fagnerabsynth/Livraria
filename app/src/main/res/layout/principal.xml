@@ -28,6 +28,7 @@
                     android:id="@+id/imageButton"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:onClick="catalogoLivros"
                     android:src="@drawable/catalogoLivros" />
 
                 <TextView
@@ -49,6 +50,7 @@
                     android:id="@+id/imageButton2"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:onClick="administrar"
                     android:src="@drawable/Administrator" />
 
                 <TextView
@@ -78,6 +80,7 @@
                     android:id="@+id/imageButton3"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:onClick="sobreAplicacao"
                     android:src="@drawable/About" />
 
                 <TextView
@@ -100,6 +103,7 @@
                     android:id="@+id/imageButton4"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:onClick="finalizarSessao"
                     android:src="@drawable/LogOut" />
 
                 <TextView
