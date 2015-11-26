@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="Usuário:"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff" />
+            android:textColor="#040404" />
 
         <EditText
             android:id="@+id/lblUsuario"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Senha:"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff" />
+            android:textColor="#040404" />
 
         <EditText
             android:id="@+id/lblSenha"
