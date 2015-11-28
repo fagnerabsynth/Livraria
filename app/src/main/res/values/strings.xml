@@ -4,11 +4,11 @@
 
     <string name="texto">Seja bem vindo</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_inicial">Inicial</string>
-    <string name="title_activity_teste">Teste</string>
+    <string name="title_activity_inicial">Livraria</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_administracao">Administracao</string>
     <string name="title_activity_manutencao_da_categoria">ManutencaoDaCategoria</string>
     <string name="title_activity_cadastro_categoria">CadastroCategoria</string>
+    <string name="title_activity_cadastro_livro">CadastroLivro</string>
 </resources>

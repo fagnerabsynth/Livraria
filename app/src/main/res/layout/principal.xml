@@ -9,12 +9,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1"
-    tools:context="br.unicid.livraria.Principal">
-
+    tools:context="br.unicid.livraria.Views.Principal">
 
     <TableLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal">
 
         <TableRow
@@ -29,10 +28,12 @@
 
                 <ImageButton
                     android:id="@+id/imageButton"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@null"
                     android:onClick="catalogoLivros"
-                    android:src="@drawable/catalogoLivros" />
+                    android:src="@drawable/cadastrolivro" />
+
 
                 <TextView
                     android:id="@+id/txtCatalogo"
@@ -41,7 +42,8 @@
                     android:layout_gravity="center_horizontal"
                     android:text="Catálogo de Livros"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#040404" />
+                    android:textColor="#FF040404" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -51,8 +53,10 @@
 
                 <ImageButton
                     android:id="@+id/imageButton2"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@null"
+
                     android:onClick="administrar"
                     android:src="@drawable/administrator" />
 
@@ -81,8 +85,10 @@
 
                 <ImageButton
                     android:id="@+id/imageButton3"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+
+                    android:background="@null"
                     android:onClick="sobreAplicacao"
                     android:src="@drawable/about" />
 
@@ -104,10 +110,12 @@
 
                 <ImageButton
                     android:id="@+id/imageButton4"
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+
+                    android:background="@null"
                     android:onClick="finalizarSessao"
-                    android:src="@drawable/logOut" />
+                    android:src="@drawable/logout" />
 
                 <TextView
                     android:id="@+id/txtEncerrar"

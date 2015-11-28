@@ -3,10 +3,17 @@ package br.unicid.livraria;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import br.unicid.livraria.Views.Principal;
+
 public class Inicial extends Activity {
+
+    public static String TITULO() {
+        return "Saraivá";
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +23,7 @@ public class Inicial extends Activity {
     }
 
     private void ProximaPagina() {
+        SystemClock.sleep(4000);
         Intent i = new Intent(getApplicationContext(), Principal.class);
         startActivity(i);
     }

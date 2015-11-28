@@ -1,13 +1,13 @@
 package br.unicid.livraria.Views;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import br.unicid.livraria.R;
 
-public class ManutencaoDoLivro extends AppCompatActivity {
+public class ManutencaoDoLivro extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
