@@ -43,7 +43,6 @@ public class Login extends AppCompatActivity {
         String usuario, senha;
 
 
-
         usuario = lblUsuario.getText().toString();
 
         senha = lblSenha.getText().toString();
@@ -88,8 +87,6 @@ public class Login extends AppCompatActivity {
         }
 
     }
-
-
 
 
     @Override
