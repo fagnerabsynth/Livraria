@@ -20,7 +20,10 @@
             android:name=".Views.Principal"
             android:label="Principal"></activity>
         <activity
-            android:name=".Login"
+            android:name=".Views.Administracao"
+            android:label="Administracao"></activity>
+        <activity
+            android:name=".Views.Login"
             android:label="Login" />
         <activity
             android:name=".AlteracaoSenhaEsquecida"

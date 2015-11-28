@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import br.unicid.livraria.Inicial;
 import br.unicid.livraria.Model.ConvertImage;
 import br.unicid.livraria.R;
 
@@ -35,8 +36,11 @@ public class CadastroLivro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_livro);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fece0f")));
-        getSupportActionBar().setIcon(R.drawable.saraivamini);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        // getSupportActionBar().setIcon(R.drawable.saraivamini);
+        getSupportActionBar().setTitle(Inicial.TITULO());
+        getSupportActionBar().setSubtitle("Cadastro de Livro");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

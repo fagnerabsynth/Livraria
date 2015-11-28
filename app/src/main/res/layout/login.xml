@@ -9,29 +9,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1"
-    tools:context="br.unicid.livraria.Login">
+    tools:context="br.unicid.livraria.Views.Login">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.26">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center">
 
-        <ImageButton
-            android:id="@+id/imageButton5"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+            android:id="@+id/imageButton5"
+                android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:background="#FFFECE04"
-            android:src="@drawable/saraivamini" />
-    </FrameLayout>
+                android:src="@drawable/saraiva" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.10"
-        android:orientation="horizontal">
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:padding="10dp">
 
-        <TextView
+                <TableRow>
+
+                    <TextView
             android:id="@+id/txtUsuario"
             android:layout_width="94dp"
             android:layout_height="wrap_content"
@@ -44,16 +50,11 @@
             android:layout_width="279dp"
             android:layout_height="wrap_content"
             android:background="#ffffff"
-            android:text="usuario@dominio.com"
+            android:hint="Digite seu usuário"
             android:textColor="#a0a1a1" />
-    </LinearLayout>
+                </TableRow>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.20"
-        android:orientation="horizontal">
-
+                <TableRow>
         <TextView
             android:id="@+id/txtSenha"
             android:layout_width="94dp"
@@ -67,33 +68,25 @@
             android:layout_width="266dp"
             android:layout_height="wrap_content"
             android:background="#ffffff"
-            android:hint="Digite a sua Senha: ****"
+            android:hint="Digite a sua Senha"
             android:inputType="textVisiblePassword"
-            android:text="Digite a sua Senha: ****"
+            android:text=""
             android:textColor="#a0a1a1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+                </TableRow>
+            </TableLayout>
         <Button
             android:id="@+id/btnOk"
-            android:layout_width="177dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#030303"
-            android:text="Ok"
-            android:textColor="#ffffff" />
+            android:onClick="logIn"
+            android:text="Logar" />
 
         <Button
             android:id="@+id/btnHelp"
-            android:layout_width="177dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#030303"
-            android:text="Esqueceu a Senha?"
-            android:textColor="#ffffff" />
-    </LinearLayout>
+            android:text="Esqueceu a Senha?" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

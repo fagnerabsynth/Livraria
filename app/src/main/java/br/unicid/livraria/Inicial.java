@@ -1,31 +1,78 @@
 package br.unicid.livraria;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.SystemClock;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import br.unicid.livraria.Views.Principal;
 
-public class Inicial extends Activity {
+public class Inicial extends AppCompatActivity {
+
+    private static boolean sessao = false;
+    private String valor;
 
     public static String TITULO() {
-        return "Saraivá";
+        return "Saraiva";
     }
+
+    public static boolean sessao() {
+        return sessao;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicial);
-        ProximaPagina();
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setTitle(Inicial.TITULO());
+        getSupportActionBar().setSubtitle("Carregando...");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        //  getSupportActionBar().setHomeButtonEnabled(true);
+        //    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
+        valor = pref.getString("sessao", null);
+
+        sessao = !TextUtils.isEmpty(valor);
+
+
+        if (!sessao) {
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    inicia();
+                }
+            }, 3000);
+
+        } else {
+            inicia();
+        }
+
     }
 
-    private void ProximaPagina() {
-        SystemClock.sleep(4000);
-        Intent i = new Intent(getApplicationContext(), Principal.class);
-        startActivity(i);
+    private void inicia() {
+
+        Intent intentado;
+
+
+        intentado = new Intent(this, Principal.class);
+
+        startActivity(intentado);
+
+        finish();
+
     }
 
 

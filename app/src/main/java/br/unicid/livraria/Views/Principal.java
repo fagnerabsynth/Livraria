@@ -9,22 +9,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
-import br.unicid.livraria.Administracao;
 import br.unicid.livraria.Inicial;
 import br.unicid.livraria.R;
 
 
 public class Principal extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.principal);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fece0f")));
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setTitle(Inicial.TITULO());
+        getSupportActionBar().setSubtitle("Principal");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        //   getSupportActionBar().setHomeButtonEnabled(true);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.saraivamini);
 
     }
 
@@ -35,7 +38,14 @@ public class Principal extends AppCompatActivity {
     }
 
     public void administrar(View btn) {
-        Intent pulo = new Intent(this, Administracao.class);
+        Intent pulo;
+
+        if (Inicial.sessao()) {
+            pulo = new Intent(this, Administracao.class);
+        } else {
+            pulo = new Intent(this, Login.class);
+        }
+
         startActivity(pulo);
     }
 
@@ -44,21 +54,18 @@ public class Principal extends AppCompatActivity {
         // Intent pulo = new Intent(this,Sobre.class);
 
         ///startActivity(pulo);
+
     }
 
     public void finalizarSessao(View btn) {
-
         SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
         SharedPreferences.Editor editor = pref.edit();
-
         editor.commit();
         Intent pulo = new Intent(this, Inicial.class);
-
         startActivity(pulo);
         finish();
-
-
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
