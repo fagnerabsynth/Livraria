@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.unicid.livraria">
+    package="br.unicid.livraria" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".Inicial"
-            android:label="@string/title_activity_inicial">
+            android:label="@string/title_activity_inicial" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Views.Principal"
-            android:label="Principal"></activity>
+            android:name=".Principal"
+            android:label="Principal" >
+        </activity>
         <activity
             android:name=".Views.Administracao"
             android:label="Administracao"></activity>
@@ -29,8 +30,17 @@
             android:name=".AlteracaoSenhaEsquecida"
             android:label="Alterar senha" />
         <activity
-            android:name=".Views.CadastroLivro"
-            android:label="@string/title_activity_cadastro_livro"></activity>
+            android:name=".Administracao"
+            android:label="@string/title_activity_administracao" >
+        </activity>
+        <activity
+            android:name=".ManutencaoDaCategoria"
+            android:label="@string/title_activity_manutencao_da_categoria" >
+        </activity>
+        <activity
+            android:name=".CadastroCategoria"
+            android:label="@string/title_activity_cadastro_categoria" >
+        </activity>
     </application>
 
 </manifest>

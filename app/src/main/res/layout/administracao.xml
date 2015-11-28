@@ -8,119 +8,103 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="1"
-    tools:context="br.unicid.livraria.Views.Administracao">
+    tools:context="br.unicid.livraria.Administracao">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Categorias"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <LinearLayout
+        android:id="@+id/CategoriaLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/imbCadCat"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="left"
+            android:src="@drawable/cadastrocategoria" />
 
+        <ImageButton
+            android:id="@+id/imbListCat"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="right"
+            android:src="@drawable/listacategoria" />
 
-            <TextView
-                android:id="@+id/txtCategorias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Categorias"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
 
+    <TextView
+        android:id="@+id/txtLivros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Livros"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <LinearLayout
-                android:id="@+id/CategoriaLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:weightSum="1">
+    <LinearLayout
+        android:id="@+id/LivrosLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/imbCadCat"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/cadastrocategoria" />
+        <ImageButton
+            android:id="@+id/imbCadLiv"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cadastrolivro" />
 
-                <ImageButton
-                    android:id="@+id/imbListCat"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="right"
-                    android:src="@drawable/listacategoria" />
+        <ImageButton
+            android:id="@+id/imbLisLiv"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/listalivro" />
+    </LinearLayout>
 
-            </LinearLayout>
+    <TextView
+        android:id="@+id/txtUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Usuário"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
-                android:id="@+id/txtLivros"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Livros"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:id="@+id/UsuarioLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/LivrosLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/imbCadUser"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cadastrousuario" />
 
-                <ImageButton
-                    android:id="@+id/imbCadLiv"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/cadastrolivro" />
+        <ImageButton
+            android:id="@+id/imgLisUser"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/listausuario" />
+    </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/imbLisLiv"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/listalivro" />
-            </LinearLayout>
+    <Button
+        android:id="@+id/btnsair"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#030303"
+        android:text="sair"
+        android:textColor="#ffffff" />
 
-            <TextView
-                android:id="@+id/txtUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Usuário"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <LinearLayout
-                android:id="@+id/UsuarioLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/imbCadUser"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/cadastrousuario" />
-
-                <ImageButton
-                    android:id="@+id/imgLisUser"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/listausuarios" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnsair"
-                android:layout_width="177dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="#030303"
-                android:text="sair"
-                android:textColor="#ffffff" />
-
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>
