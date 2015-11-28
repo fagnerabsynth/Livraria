@@ -17,15 +17,15 @@ public class Principal extends Activity {
 
 
     public void catalogoLivros(View btn) {
-        Intent pulo = new Intent(this,Catalogo.class);
+        Intent pulo = new Intent(this, Catalogo.class);
 
         startActivity(pulo);
 
 
     }
 
-    public void administrar(View btn){
-        Intent pulo = new Intent(this,Administracao.class);
+    public void administrar(View btn) {
+        Intent pulo = new Intent(this, Administracao.class);
 
         startActivity(pulo);
 
@@ -34,28 +34,25 @@ public class Principal extends Activity {
 
     public void sobreAplicacao(View btn) {
 
-        Intent pulo = new Intent(this,Sobre.class);
+        Intent pulo = new Intent(this, Sobre.class);
 
         startActivity(pulo);
     }
 
-    public void finalizarSessao(View btn){
+    public void finalizarSessao(View btn) {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.remove("sessao");
         editor.commit();
 
-        Intent pulo = new Intent(this,Inicial.class);
+        Intent pulo = new Intent(this, Inicial.class);
 
         startActivity(pulo);
         finish();
 
 
     }
-
-
-
 
 
 }

@@ -1,11 +1,8 @@
 package br.unicid.livraria;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -22,10 +19,9 @@ public class Login extends Activity {
 
     }
 
-    public void logIn (View btn) {
+    public void logIn(View btn) {
 
         String usuario, senha;
-
 
 
         usuario = lblUsuario.getText().toString();
@@ -36,9 +32,8 @@ public class Login extends Activity {
 
         if (TextUtils.isEmpty(usuario)) {
 
-            erro +="O Campo Email não pode ficar em branco! ";
-        }
-        else if (!usuario.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
+            erro += "O Campo Email não pode ficar em branco! ";
+        } else if (!usuario.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
             lblUsuario.setText("");
 
             if (erro != "") {
@@ -49,9 +44,9 @@ public class Login extends Activity {
 
         }
 
-        if (TextUtils.isEmpty(senha)){
+        if (TextUtils.isEmpty(senha)) {
 
-            if (erro == ""){
+            if (erro == "") {
                 erro += "\n";
 
             }
@@ -59,11 +54,6 @@ public class Login extends Activity {
             erro += "O campo Senha não pode ficar em branco!";
 
         }
-
-
-
-
-
 
 
     }
