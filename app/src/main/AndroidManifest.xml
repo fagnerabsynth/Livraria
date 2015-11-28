@@ -16,9 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Principal"
-            android:label="Principal"></activity>
+
         <activity
             android:name=".Views.Administracao"
             android:label="Administracao"></activity>
@@ -29,8 +27,8 @@
             android:name=".AlteracaoSenhaEsquecida"
             android:label="Alterar senha" />
         <activity
-            android:name=".Administracao"
-            android:label="@string/title_activity_administracao"></activity>
+            android:name=".Views.Principal"
+            android:label="Principal"></activity>
         <activity
             android:name=".ManutencaoDaCategoria"
             android:label="@string/title_activity_manutencao_da_categoria"></activity>
