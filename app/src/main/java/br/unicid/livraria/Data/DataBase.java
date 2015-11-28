@@ -126,5 +126,23 @@ public class DataBase extends SQLiteOpenHelper {
         return rs.getCount() == 1;
     }
 
+    public boolean pesquisaUsuario(String usuario) {
+        db = this.getWritableDatabase();
+        String[] dados = {usuario};
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where usuario = ? ", dados);
+        return rs.getCount() == 1;
+    }
+
+    public boolean alteraSenha(String usuario, String senha) {
+        db = this.getWritableDatabase();
+        String[] dados = {md5(senha), usuario};
+        try {
+            db.execSQL("UPDATE " + TABELA_USUARIOS + " SET senha = ? where usuario = ? ", dados);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
 
 }

@@ -21,6 +21,13 @@ public class Login extends AppCompatActivity {
 
     private EditText lblUsuario, lblSenha;
 
+    public void alterarSenha(View v) {
+        Intent i;
+        i = new Intent(this, AlteracaoSenhaEsquecida.class);
+        startActivity(i);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
