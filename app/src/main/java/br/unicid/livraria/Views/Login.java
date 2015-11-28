@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
         lblUsuario = (EditText) findViewById(R.id.lblUsuario);
         lblSenha = (EditText) findViewById(R.id.lblSenha);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         getSupportActionBar().setTitle(Inicial.TITULO());
         getSupportActionBar().setSubtitle("Login");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);

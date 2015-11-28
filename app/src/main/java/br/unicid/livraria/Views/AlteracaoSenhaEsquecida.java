@@ -109,7 +109,7 @@ public class AlteracaoSenhaEsquecida extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         getSupportActionBar().setTitle(Inicial.TITULO());
         getSupportActionBar().setSubtitle("Alterar senha");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);

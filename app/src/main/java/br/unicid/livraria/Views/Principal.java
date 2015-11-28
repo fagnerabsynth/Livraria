@@ -21,7 +21,7 @@ public class Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.principal);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         getSupportActionBar().setTitle(Inicial.TITULO());
         getSupportActionBar().setSubtitle("Principal");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
@@ -33,8 +33,7 @@ public class Principal extends AppCompatActivity {
 
 
     public void catalogoLivros(View btn) {
-        Intent pulo = new Intent(this, CadastroLivro.class);
-        startActivity(pulo);
+
     }
 
     public void administrar(View btn) {

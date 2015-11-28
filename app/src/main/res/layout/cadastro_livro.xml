@@ -17,7 +17,8 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1">
 
             <TableRow>
 
@@ -172,6 +173,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_column="0"
                     android:text="Imagem:"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -179,6 +181,7 @@
                     android:id="@+id/btn1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_column="1"
                     android:layout_gravity="center"
                     android:onClick="PegaImagem"
                     android:text="Enviar imagem"
@@ -186,15 +189,21 @@
 
                 <ImageButton
                     android:id="@+id/btn2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
                     android:background="@android:color/transparent"
                     android:onClick="PegaImagem"
+                    android:scaleType="fitXY"
                     android:visibility="gone" />
 
             </TableRow>
 
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Cadastrar Livro" />
         </TableLayout>
 
 

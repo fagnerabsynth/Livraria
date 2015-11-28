@@ -26,6 +26,9 @@
             android:name=".Views.Login"
             android:label="Login" />
         <activity
+            android:name=".Views.CadastroCategoria"
+            android:label="Cadastro  Categoria" />
+        <activity
             android:name=".Views.AlteracaoSenhaEsquecida"
             android:label="Alterar senha" />
         <activity

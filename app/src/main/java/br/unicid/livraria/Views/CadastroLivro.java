@@ -36,7 +36,7 @@ public class CadastroLivro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_livro);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         // getSupportActionBar().setIcon(R.drawable.saraivamini);
         getSupportActionBar().setTitle(Inicial.TITULO());
         getSupportActionBar().setSubtitle("Cadastro de Livro");

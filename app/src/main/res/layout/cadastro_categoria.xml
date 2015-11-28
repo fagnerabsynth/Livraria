@@ -8,79 +8,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="1"
     tools:context="br.unicid.livraria.Views.CadastroCategoria">
 
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.30"
+        android:src="@drawable/saraiva" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtCategoria"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Categoria:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/lblCategoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:inputType="none"
-            android:text="Digite o nome da categoria"
-            android:textColor="#a0a1a1"
-            android:textColorHint="#d4d4d4" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Categoria:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.45"
-        android:orientation="vertical">
+            <EditText
+                android:id="@+id/lblCategoria"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite o nome da categoria" />
 
-        <TextView
-            android:id="@+id/txtDescricao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descrição da Categoria:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:background="#ffffff"
-            android:ems="10"
-            android:inputType="textMultiLine" />
-    </LinearLayout>
+                android:text="Descrição da Categoria:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/txtDescricao"
+                android:layout_width="fill_parent"
+                android:layout_height="125dp"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btnCadastrat"
-            android:layout_width="177dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:backgroundTint="#040404"
-            android:text="Cadastrar"
-            android:textColor="#ffffff" />
+            android:background="@android:color/transparent"
+            android:text="Cadastrar" />
 
-        <Button
-            android:id="@+id/btnVoltar"
-            android:layout_width="177dp"
-            android:layout_height="wrap_content"
-            android:layout_column="6"
-            android:backgroundTint="#040404"
-            android:text="Voltar"
-            android:textColor="#ffffff" />
+
     </LinearLayout>
+
 
 </LinearLayout>
 

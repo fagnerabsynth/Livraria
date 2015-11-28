@@ -55,7 +55,7 @@ public class DataBase extends SQLiteOpenHelper {
         //adicionei o valor unique para impedir usuarios com o menos login... deixa de modo unico
         String query1 = "Create table " + TABELA_USUARIOS + "( " +
                 "id integer primary key autoincrement," +
-                " usuario text not null, " +
+                " usuario text not null unique, " +
                 "senha text not null);";
         db.execSQL(query1);
 
@@ -72,17 +72,19 @@ public class DataBase extends SQLiteOpenHelper {
         //INCIO DA TABELA CATEGORIA
 
         //Cria a tabela categoria
-        String query2 = "Create table " + TABELA_CATEGORIA + " (id integer primary key autoincrement, categoria text not null unique )";
+        String query2 = "Create table " + TABELA_CATEGORIA + " (id integer primary key autoincrement, " +
+                "categoria text not null unique," +
+                "descricao text )";
         db.execSQL(query2);
 
         // vasculha para ver se o banco de dados esta vazio para inserir os alunos
         Cursor rs2 = db.rawQuery("SELECT * FROM " + TABELA_CATEGORIA, null);
         if (rs2.getCount() == 0) {
             List<String[]> categoria = new ArrayList<String[]>();
-            categoria.add(new String[]{"Açao"});
-            categoria.add(new String[]{"Ficção cientifica"});
+            categoria.add(new String[]{"Infantil", "Contos, Histórias e Brincadeira"});
+            categoria.add(new String[]{"Informática", "Livros voltados a Tecnologia da Informação"});
             for (String[] m : categoria) {
-                db.execSQL("Insert into " + TABELA_CATEGORIA + "(categoria) values (?)", m);
+                db.execSQL("Insert into " + TABELA_CATEGORIA + "(categoria,descricao) values (?,?)", m);
             }
         }
 
@@ -126,6 +128,8 @@ public class DataBase extends SQLiteOpenHelper {
         return rs.getCount() == 1;
     }
 
+
+    //compara se existe um usuario e senha... retorna um boolean
     public boolean pesquisaUsuario(String usuario) {
         db = this.getWritableDatabase();
         String[] dados = {usuario};
@@ -133,6 +137,7 @@ public class DataBase extends SQLiteOpenHelper {
         return rs.getCount() == 1;
     }
 
+    //altera a senha de um usuario... retorna um boolean
     public boolean alteraSenha(String usuario, String senha) {
         db = this.getWritableDatabase();
         String[] dados = {md5(senha), usuario};

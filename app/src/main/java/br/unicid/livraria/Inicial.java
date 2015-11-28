@@ -24,6 +24,10 @@ public class Inicial extends AppCompatActivity {
         return "Saraiva";
     }
 
+    public static String Cor() {
+        return "#eece04";
+    }
+
     public static boolean sessao() {
         return sessao;
     }
@@ -34,7 +38,7 @@ public class Inicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicial);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eece04")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Cor())));
         getSupportActionBar().setTitle(Inicial.TITULO());
         getSupportActionBar().setSubtitle("Carregando...");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
