@@ -36,14 +36,6 @@ public class CadastroLivro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_livro);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
-        // getSupportActionBar().setIcon(R.drawable.saraivamini);
-        getSupportActionBar().setTitle(Inicial.TITULO());
-        getSupportActionBar().setSubtitle("Cadastro de Livro");
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         bt2 = (ImageButton) findViewById(R.id.btn2);
         bt2.setVisibility(View.GONE);
@@ -75,8 +67,14 @@ public class CadastroLivro extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.cadastro_livro, menu);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
+        getSupportActionBar().setTitle(Inicial.TITULO());
+        getSupportActionBar().setSubtitle("Cadastro de Livro");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         return true;
     }
 

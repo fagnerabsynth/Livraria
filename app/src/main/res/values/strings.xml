@@ -11,4 +11,5 @@
     <string name="title_activity_manutencao_da_categoria">ManutencaoDaCategoria</string>
     <string name="title_activity_cadastro_categoria">CadastroCategoria</string>
     <string name="title_activity_cadastro_livro">CadastroLivro</string>
+    <string name="title_activity_listar_categoria">ListarCategoria</string>
 </resources>

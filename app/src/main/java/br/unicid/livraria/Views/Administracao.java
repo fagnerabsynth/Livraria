@@ -45,6 +45,10 @@ public class Administracao extends AppCompatActivity {
         return true;
     }
 
+    public void listarCategoria(View e) {
+        Intent i = new Intent(this, ListarCategoria.class);
+        startActivity(i);
+    }
 
     public void cadastraCategoria(View e) {
         Intent i = new Intent(this, CadastroCategoria.class);

@@ -34,7 +34,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/lblCategoria"
+                android:id="@+id/Categoria"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Digite o nome da categoria" />
@@ -48,7 +48,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/txtDescricao"
+                android:id="@+id/Descricao"
                 android:layout_width="fill_parent"
                 android:layout_height="125dp"
                 android:ems="10"
@@ -60,6 +60,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:onClick="criaCategoria"
             android:text="Cadastrar" />
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -170,6 +171,35 @@ public class DataBase extends SQLiteOpenHelper {
         return true;
     }
 
+    public ArrayList<CategoriaMOD> pesquisaCategoria(String pesquisa) {
+        db = this.getWritableDatabase();
+        ArrayList<CategoriaMOD> retorno = new ArrayList<CategoriaMOD>();
+        String query;
+        Cursor rs;
+        if (TextUtils.isEmpty(pesquisa)) {
+            rs = db.rawQuery("select * from " + TABELA_CATEGORIA + " order by categoria asc", null);
+        } else {
+            rs = db.rawQuery("select * from " + TABELA_CATEGORIA + " where categoria like ? order by categoria asc", new String[]{"%" + pesquisa.replace(" ", "%") + "%"});
+        }
+        CategoriaMOD cat;
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat = new CategoriaMOD();
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    cat.descricao = rs.getString(rs.getColumnIndex("descricao"));
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    retorno.add(cat);
+                } while (rs.moveToNext());
+            }
+        }
+        return retorno;
+    }
+
+
+    public ArrayList<CategoriaMOD> pesquisaCategoria() {
+        return pesquisaCategoria(null);
+    }
 
 
 }
