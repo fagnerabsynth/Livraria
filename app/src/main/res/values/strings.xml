@@ -11,4 +11,7 @@
     <string name="title_activity_administracao">Administracao</string>
     <string name="title_activity_manutencao_da_categoria">ManutencaoDaCategoria</string>
     <string name="title_activity_cadastro_categoria">CadastroCategoria</string>
+    <string name="title_activity_todos_os_livros">TodosOsLivros</string>
+    <string name="title_activity_lista_de_categoria">ListaDeCategoria</string>
+    <string name="title_activity_livros_da_categoria">LivrosDaCategoria</string>
 </resources>

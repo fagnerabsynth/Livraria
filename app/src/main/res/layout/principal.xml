@@ -29,7 +29,7 @@
                     android:layout_width="175dp"
                     android:layout_height="175dp"
                     android:onClick="catalogoLivros"
-                    android:src="@drawable/catalogoLivros" />
+                    android:src="@drawable/catalogo_livros" />
 
                 <TextView
                     android:id="@+id/txtCatalogo"
@@ -104,7 +104,7 @@
                     android:layout_width="175dp"
                     android:layout_height="175dp"
                     android:onClick="finalizarSessao"
-                    android:src="@drawable/logOut" />
+                    android:src="@drawable/log_out" />
 
                 <TextView
                     android:id="@+id/txtEncerrar"
