@@ -10,6 +10,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.unicid.livraria.Model.CategoriaMOD;
+
 /**
  * Created by Fagner on 11/11/2015.
  */
@@ -148,6 +150,26 @@ public class DataBase extends SQLiteOpenHelper {
         }
         return true;
     }
+
+
+    public boolean categoria(CategoriaMOD cat) {
+        db = this.getWritableDatabase();
+        try {
+            if (cat.id == 0) {
+                db.execSQL("insert into " + TABELA_CATEGORIA + " " +
+                        "(categoria,descricao) values (?,?)" +
+                        "", new String[]{cat.categoria, cat.descricao});
+            } else {
+                db.execSQL("update " + TABELA_CATEGORIA + " SET categoria = ?, " +
+                        "descricao = ? " +
+                        "where id = ? ", new String[]{cat.categoria, cat.descricao, "" + cat.id});
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
 
 
 }
