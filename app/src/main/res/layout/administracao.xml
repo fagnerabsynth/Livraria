@@ -31,14 +31,14 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="left"
-            android:src="@drawable/cadastrocategoria" />
+            android:src="@drawable/cadastro_categoria" />
 
         <ImageButton
             android:id="@+id/imbListCat"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="right"
-            android:src="@drawable/listacategoria" />
+            android:src="@drawable/lista_categoria" />
 
     </LinearLayout>
 
@@ -61,13 +61,13 @@
             android:id="@+id/imbCadLiv"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/cadastrolivro" />
+            android:src="@drawable/cadastro_livro" />
 
         <ImageButton
             android:id="@+id/imbLisLiv"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/listalivro" />
+            android:src="@drawable/lista_livro" />
     </LinearLayout>
 
     <TextView
@@ -89,13 +89,13 @@
             android:id="@+id/imbCadUser"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/cadastrousuario" />
+            android:src="@drawable/cadastro_usuario" />
 
         <ImageButton
             android:id="@+id/imgLisUser"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/listausuario" />
+            android:src="@drawable/listausuarios" />
     </LinearLayout>
 
     <Button
