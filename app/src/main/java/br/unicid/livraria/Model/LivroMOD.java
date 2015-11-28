@@ -1,0 +1,17 @@
+package br.unicid.livraria.Model;
+
+/**
+ * Created by Fagner on 28/11/2015.
+ */
+public class LivroMOD {
+    public int _id;
+    public String titulo;
+    public String subtitulo;
+    public String edicao;
+    public String autor;
+    public int paginas;
+    public int ano;
+    public String editora;
+    public int categoria;
+    public String imagem;
+}

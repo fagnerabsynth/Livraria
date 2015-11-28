@@ -38,18 +38,6 @@
             android:name=".CadastroCategoria"
             android:label="@string/title_activity_cadastro_categoria" >
         </activity>
-        <activity
-            android:name=".TodosOsLivros"
-            android:label="@string/title_activity_todos_os_livros" >
-        </activity>
-        <activity
-            android:name=".ListaDeCategoria"
-            android:label="@string/title_activity_lista_de_categoria" >
-        </activity>
-        <activity
-            android:name=".LivrosDaCategoria"
-            android:label="@string/title_activity_livros_da_categoria" >
-        </activity>
     </application>
 
 </manifest>
