@@ -17,6 +17,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Views.ListarLivrosTodos"
+            android:label="Principal" />
+        <activity
+            android:name=".Views.ListarLivrosCategoria"
+            android:label="Principal" />
+        <activity
             android:name=".Views.Principal"
             android:label="Principal" />
         <activity
@@ -55,7 +61,10 @@
             android:label="@string/title_activity_listar_livros" />
         <activity
             android:name=".Views.Livro"
-            android:label="@string/title_activity_livro"></activity>
+            android:label="@string/title_activity_livro" />
+        <activity
+            android:name=".Views.ListarTudo"
+            android:label="@string/title_activity_listar_tudo"></activity>
     </application>
 
 </manifest>

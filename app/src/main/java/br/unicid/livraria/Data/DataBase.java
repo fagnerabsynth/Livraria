@@ -60,14 +60,22 @@ public class DataBase extends SQLiteOpenHelper {
         String query1 = "Create table " + TABELA_USUARIOS + "( " +
                 "id integer primary key autoincrement," +
                 " usuario text not null unique, " +
-                "senha text not null);";
+                "senha text not null," +
+                "nome text not null unique," +
+                "imagem text," +
+                "email text not null," +
+                "telefone text not null," +
+                "endereco text not null," +
+                "complemento text," +
+                "bairro text not null," +
+                "cidade text not null," +
+                "uf text not null)";
         db.execSQL(query1);
-
         //adiciona o usuario admin e a senha admin
         Cursor rs1 = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS, null);
         if (rs1.getCount() == 0) {
-            String[] dadosAdmin = {"admin", md5("admin")};
-            db.execSQL("Insert into " + TABELA_USUARIOS + "(usuario,senha) values (?,?)", dadosAdmin);
+            String[] dadosAdmin = {"admin", md5("admin"), "Administrador", "", "admin@admin.com", "0000-0000", "servidolando", "", "Vila PC", "Sum Paulu", "SP"};
+            db.execSQL("Insert into " + TABELA_USUARIOS + "(usuario,senha,nome,imagem,email,telefone,endereco,complemento,bairro,cidade,uf) values (?,?,?,?,?,?,?,?,?,?,?)", dadosAdmin);
         }
 
         //FIM DA TABELA USUARIOS
@@ -332,6 +340,40 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<LivroMOD> pesquisaLivro(String pesquisa, int x) {
+        db = this.getWritableDatabase();
+        ArrayList<LivroMOD> retorno = new ArrayList<LivroMOD>();
+        String query;
+        Cursor rs;
+        if (TextUtils.isEmpty(pesquisa)) {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " order by titulo asc", null);
+        } else {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " where categoria = ? order by titulo asc", new String[]{pesquisa});
+        }
+        LivroMOD cat;
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat = new LivroMOD();
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
+                    cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
+                    cat.editora = rs.getString(rs.getColumnIndex("editora"));
+                    cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
+                    cat.autor = rs.getString(rs.getColumnIndex("autor"));
+                    cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
+                    cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+                    retorno.add(cat);
+                } while (rs.moveToNext());
+            }
+        }
+        return retorno;
+    }
+
+
     public ArrayList<LivroMOD> pesquisaLivro() {
         return pesquisaLivro(null);
     }
@@ -356,7 +398,7 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
                     cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
                     cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
-                    //
+
                 } while (rs.moveToNext());
             }
         }
@@ -373,7 +415,7 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
         return true;
-}
+    }
 
 
 }
