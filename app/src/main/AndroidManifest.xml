@@ -36,7 +36,13 @@
             android:label="@string/title_activity_cadastro_livro" />
         <activity
             android:name=".Views.ListarCategoria"
-            android:label="@string/title_activity_listar_categoria"></activity>
+            android:label="@string/title_activity_listar_categoria" />
+        <activity
+            android:name=".Views.ListaLivro"
+            android:label="@string/title_activity_lista_livro" />
+        <activity
+            android:name=".Views.Catalogo"
+            android:label="@string/title_activity_catalogo"></activity>
     </application>
 
 </manifest>
