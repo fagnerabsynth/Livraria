@@ -356,6 +356,7 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
                     cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
                     cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+                    //
                 } while (rs.moveToNext());
             }
         }
