@@ -117,9 +117,7 @@ public class ListarLivros extends AppCompatActivity {
         boolean sessao = !TextUtils.isEmpty(valor);
 
 
-        if (sessao) {
-            registerForContextMenu(listView);
-        }
+
 
         listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
@@ -139,8 +137,10 @@ public class ListarLivros extends AppCompatActivity {
 
             }
         });
+        if (sessao) {
+            registerForContextMenu(listView);
 
-        registerForContextMenu(listView);
+        }
         listView.setAdapter(adapter);
 
     }
