@@ -4,7 +4,8 @@ package br.unicid.livraria.Model;
  * Created by Fagner on 28/11/2015.
  */
 public class LivroMOD {
-    public int _id;
+    public int id = 0;
+    public String isbn;
     public String titulo;
     public String subtitulo;
     public String edicao;

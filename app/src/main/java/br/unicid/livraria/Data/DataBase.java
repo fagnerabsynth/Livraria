@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.unicid.livraria.Model.CategoriaMOD;
+import br.unicid.livraria.Model.LivroMOD;
 
 /**
  * Created by Fagner on 11/11/2015.
@@ -91,7 +92,29 @@ public class DataBase extends SQLiteOpenHelper {
             }
         }
 
+
         //FIM DA TABELA CATEGORIA
+
+
+        //INCIO DA TABELA CATEGORIA
+
+        //Cria a tabela livro
+        String query4 = "Create table " + TABELA_PRODUTOS + " (" +
+                "id integer primary key autoincrement, " +
+                "titulo text unique not null," +
+                "isbn text not null," +
+                "subtitulo text not null," +
+                "edicao text not null," +
+                "autor text not null," +
+                "paginas integer not null," +
+                "editora text not null," +
+                "imagem text not null," +
+                "categoria integer not null )";
+
+
+        db.execSQL(query4);
+
+        //Livros
 
 
         //INCIO DA TABELA ALUNO
@@ -169,6 +192,27 @@ public class DataBase extends SQLiteOpenHelper {
         return true;
     }
 
+    public CategoriaMOD pesquisaCategoria(String pesquisa, boolean d) {
+        CategoriaMOD m = new CategoriaMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_CATEGORIA + " where categoria = ? order by categoria asc limit 0,1", new String[]{pesquisa});
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+
+                do {
+                    m = new CategoriaMOD();
+                    m.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    m.descricao = rs.getString(rs.getColumnIndex("descricao"));
+                    m.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                } while (rs.moveToNext());
+
+            }
+        }
+
+        return m;
+    }
+
     public ArrayList<CategoriaMOD> pesquisaCategoria(String pesquisa) {
         db = this.getWritableDatabase();
         ArrayList<CategoriaMOD> retorno = new ArrayList<CategoriaMOD>();
@@ -204,6 +248,25 @@ public class DataBase extends SQLiteOpenHelper {
         try {
             db.execSQL("DELETE FROM " + TABELA_CATEGORIA + "   " +
                     "where id = ? ", new String[]{"" + id});
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+
+    public boolean cadastraLivro(LivroMOD m) {
+        db = getWritableDatabase();
+        try {
+            if (m.id == 0) {
+                db.execSQL("insert into " + TABELA_PRODUTOS + " " +
+                        "(titulo,isbn,subtitulo,edicao,autor,paginas,editora,imagem,categoria)" +
+                        " values (?,?,?,?,?,?,?,?,?)", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria});
+            } else {
+                db.execSQL("update " + TABELA_PRODUTOS + " set " +
+                        "titulo=?,isbn=?,subtitulo=?,edicao=?,autor=?,paginas=?,editora=?,imagem=?,categoria=? " +
+                        "where id=?", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria, "" + m.id});
+            }
         } catch (Exception e) {
             return false;
         }

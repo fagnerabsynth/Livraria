@@ -109,7 +109,8 @@
                     android:id="@+id/txtPagina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number" />
             </TableRow>
 
 
@@ -125,7 +126,8 @@
                     android:id="@+id/txtAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number" />
             </TableRow>
 
 
@@ -203,6 +205,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:onClick="cadastroDoLivro"
                 android:text="Cadastrar Livro" />
         </TableLayout>
 
