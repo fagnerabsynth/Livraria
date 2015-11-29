@@ -161,9 +161,7 @@ public class DataBase extends SQLiteOpenHelper {
                         "(categoria,descricao) values (?,?)" +
                         "", new String[]{cat.categoria, cat.descricao});
             } else {
-                db.execSQL("update " + TABELA_CATEGORIA + " SET categoria = ?, " +
-                        "descricao = ? " +
-                        "where id = ? ", new String[]{cat.categoria, cat.descricao, "" + cat.id});
+                db.execSQL("UPDATE " + TABELA_CATEGORIA + " SET categoria=?,descricao=? where id=?", new String[]{cat.categoria, cat.descricao, "" + cat.id});
             }
         } catch (Exception e) {
             return false;
@@ -199,6 +197,17 @@ public class DataBase extends SQLiteOpenHelper {
 
     public ArrayList<CategoriaMOD> pesquisaCategoria() {
         return pesquisaCategoria(null);
+    }
+
+    public boolean apagaCategoria(int id) {
+        db = getWritableDatabase();
+        try {
+            db.execSQL("DELETE FROM " + TABELA_CATEGORIA + "   " +
+                    "where id = ? ", new String[]{"" + id});
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
 
