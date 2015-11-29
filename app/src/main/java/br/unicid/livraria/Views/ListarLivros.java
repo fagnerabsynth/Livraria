@@ -1,6 +1,8 @@
 package br.unicid.livraria.Views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.unicid.livraria.Data.DataBase;
+import br.unicid.livraria.Inicial;
 import br.unicid.livraria.Model.LivroAdapter;
 import br.unicid.livraria.Model.LivroMOD;
 import br.unicid.livraria.R;
@@ -56,40 +59,56 @@ public class ListarLivros extends AppCompatActivity {
         iniciar();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.listar_livros, menu);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
+        getSupportActionBar().setTitle(Inicial.TITULO());
+        getSupportActionBar().setSubtitle("Listar livros");
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+
+                int id = item.getItemId();
+                if (id == R.id.action_settings) {
+                    return true;
+                }
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
 
     private void iniciar() {
         String pesquisa = pesquisarCategoria.getText().toString();
         con = new DataBase(this);
-        ArrayList<LivroMOD> cat = new ArrayList<LivroMOD>();
+        ArrayList<LivroMOD> cat;
+
         if (TextUtils.isEmpty(pesquisa)) {
             cat = con.pesquisaLivro();
+
         } else {
             cat = con.pesquisaLivro(pesquisa);
         }
+
+
         LivroAdapter adapter = new LivroAdapter(this, cat);
-        listView = (ListView) findViewById(R.id.listaCategoria);
+        listView = (ListView) findViewById(R.id.listaLivro);
+
+
+
 
         listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
@@ -99,33 +118,26 @@ public class ListarLivros extends AppCompatActivity {
                 View rowView = listView.getChildAt(position);
                 TextView textview = (TextView) rowView.findViewById(R.id.ids);
                 String ids = textview.getText().toString();
-                TextView descr = (TextView) rowView.findViewById(R.id.descricao);
-                String desc = descr.getText().toString();
-                TextView cate = (TextView) rowView.findViewById(R.id.categoria);
-                String cat = cate.getText().toString();
 
                 LivroMOD cm = new LivroMOD();
                 cm.id = Integer.parseInt(ids);
-                cm.titulo = desc;
-                cm.subtitulo = cat;
 
-                IniciarCategoria(cm);
+
+                iniciarLivro(cm);
 
 
             }
         });
 
-
         registerForContextMenu(listView);
 
         listView.setAdapter(adapter);
+
     }
 
-    private void IniciarCategoria(LivroMOD cm) {
-        Intent intentado = new Intent(this, Categoria.class);
+    private void iniciarLivro(LivroMOD cm) {
+        Intent intentado = new Intent(this, Livro.class);
         intentado.putExtra("id", "" + cm.id);
-        intentado.putExtra("categoria", cm.categoria);
-        intentado.putExtra("descricao", cm.titulo);
         startActivity(intentado);
     }
 

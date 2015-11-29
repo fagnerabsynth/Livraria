@@ -49,7 +49,10 @@
             android:label="@string/title_activity_catalogo" />
         <activity
             android:name=".Views.ListarLivros"
-            android:label="@string/title_activity_listar_livros"></activity>
+            android:label="@string/title_activity_listar_livros" />
+        <activity
+            android:name=".Views.Livro"
+            android:label="@string/title_activity_livro"></activity>
     </application>
 
 </manifest>

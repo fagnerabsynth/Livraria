@@ -293,7 +293,7 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
                     cat.categoria = Integer.parseInt(rs.getString(rs.getColumnIndex("categoria")));
                     cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
-                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("pagina")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
                     cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
                     cat.editora = rs.getString(rs.getColumnIndex("editora"));
                     cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
@@ -301,7 +301,6 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
                     cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
                     cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
-
                     retorno.add(cat);
                 } while (rs.moveToNext());
             }

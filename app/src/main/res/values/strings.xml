@@ -16,4 +16,5 @@
     <string name="title_activity_lista_livro">ListaLivro</string>
     <string name="title_activity_catalogo">Catalogo</string>
     <string name="title_activity_listar_livros">ListarLivros</string>
+    <string name="title_activity_livro">Livro</string>
 </resources>
