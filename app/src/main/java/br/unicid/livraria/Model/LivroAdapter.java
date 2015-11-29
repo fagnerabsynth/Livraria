@@ -14,13 +14,13 @@ import br.unicid.livraria.R;
 /**
  * Created by Fagner on 28/11/2015.
  */
-public class CategoriaAdapter extends BaseAdapter {
+public class LivroAdapter extends BaseAdapter {
 
 
     private Context context;
-    private List<CategoriaMOD> listadeDados;
+    private List<LivroMOD> listadeDados;
 
-    public CategoriaAdapter(Context context, List<CategoriaMOD> statelist) {
+    public LivroAdapter(Context context, List<LivroMOD> statelist) {
         this.context = context;
         this.listadeDados = statelist;
     }
@@ -43,21 +43,21 @@ public class CategoriaAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        CategoriaMOD dados = listadeDados.get(position);
+        LivroMOD dados = listadeDados.get(position);
 
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View view = inflater.inflate(R.layout.listviewcategoria, null);
+        View view = inflater.inflate(R.layout.listviewlivros, null);
 
         TextView nome = (TextView) view.findViewById(R.id.categoria);
-        nome.setText(dados.categoria);
+        nome.setText(dados.titulo);
 
         TextView ids = (TextView) view.findViewById(R.id.ids);
         ids.setText("" + dados.id);
 
         TextView valor = (TextView) view.findViewById(R.id.descricao);
-        valor.setText(dados.descricao);
+        valor.setText(dados.subtitulo);
 
         return view;
     }

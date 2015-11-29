@@ -42,10 +42,7 @@
             android:label="@string/title_activity_lista_livro" />
         <activity
             android:name=".Views.Catalogo"
-            android:label="@string/title_activity_catalogo" />
-        <activity
-            android:name=".Views.TodosOsLivros"
-            android:label="@string/title_activity_todos_os_livros"></activity>
+            android:label="@string/title_activity_catalogo"></activity>
     </application>
 
 </manifest>
