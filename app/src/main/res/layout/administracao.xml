@@ -11,6 +11,10 @@
     android:weightSum="1"
     tools:context="br.unicid.livraria.Views.Administracao">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/saraiva" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -81,6 +85,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@android:color/transparent"
+                    android:onClick="listarLivros"
                     android:src="@drawable/listalivro" />
             </TableRow>
 

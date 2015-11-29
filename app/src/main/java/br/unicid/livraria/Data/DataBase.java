@@ -106,6 +106,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "subtitulo text not null," +
                 "edicao text not null," +
                 "autor text not null," +
+                "ano integer not null," +
                 "paginas integer not null," +
                 "editora text not null," +
                 "imagem text not null," +
@@ -260,17 +261,57 @@ public class DataBase extends SQLiteOpenHelper {
         try {
             if (m.id == 0) {
                 db.execSQL("insert into " + TABELA_PRODUTOS + " " +
-                        "(titulo,isbn,subtitulo,edicao,autor,paginas,editora,imagem,categoria)" +
-                        " values (?,?,?,?,?,?,?,?,?)", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria});
+                        "(titulo,isbn,subtitulo,edicao,autor,paginas,editora,imagem,categoria,ano)" +
+                        " values (?,?,?,?,?,?,?,?,?,?)", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria, "" + m.ano});
             } else {
                 db.execSQL("update " + TABELA_PRODUTOS + " set " +
-                        "titulo=?,isbn=?,subtitulo=?,edicao=?,autor=?,paginas=?,editora=?,imagem=?,categoria=? " +
-                        "where id=?", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria, "" + m.id});
+                        "titulo=?,isbn=?,subtitulo=?,edicao=?,autor=?,paginas=?,editora=?,imagem=?,categoria=?,ano=? " +
+                        "where id=?", new String[]{m.titulo, m.isbn, m.subtitulo, m.edicao, m.autor, "" + m.paginas, m.editora, m.imagem, "" + m.categoria, "" + m.ano, "" + m.id});
             }
         } catch (Exception e) {
             return false;
         }
         return true;
+    }
+
+
+    public ArrayList<LivroMOD> pesquisaLivro(String pesquisa) {
+        db = this.getWritableDatabase();
+        ArrayList<LivroMOD> retorno = new ArrayList<LivroMOD>();
+        String query;
+        Cursor rs;
+        if (TextUtils.isEmpty(pesquisa)) {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " order by titulo asc", null);
+        } else {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " where titulo like ? order by titulo asc", new String[]{"%" + pesquisa.replace(" ", "%") + "%"});
+        }
+        LivroMOD cat;
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat = new LivroMOD();
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    cat.categoria = Integer.parseInt(rs.getString(rs.getColumnIndex("categoria")));
+                    cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("pagina")));
+                    cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
+                    cat.editora = rs.getString(rs.getColumnIndex("editora"));
+                    cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
+                    cat.autor = rs.getString(rs.getColumnIndex("autor"));
+                    cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
+                    cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+
+                    retorno.add(cat);
+                } while (rs.moveToNext());
+            }
+        }
+        return retorno;
+    }
+
+
+    public ArrayList<LivroMOD> pesquisaLivro() {
+        return pesquisaLivro(null);
     }
 
 

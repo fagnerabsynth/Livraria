@@ -287,6 +287,19 @@ public class CadastroLivro extends AppCompatActivity {
 
             if (item.cadastraLivro(l)) {
                 Toast.makeText(this, "Livro cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                txtAno.setText("");
+                txtAutores.setText("");
+                txtEdicao.setText("");
+                txtEditora.setText("");
+                txtISBN.setText("");
+                txtPagina.setText("");
+                txtSubtitulo.setText("");
+                txtTitulo.setText("");
+                txtImagens.setText("");
+                spinner.setSelection(0);
+                bt2.setVisibility(View.GONE);
+                bt1.setVisibility(View.VISIBLE);
+
             } else {
                 Toast.makeText(this, "Livro encontrado no sistema!", Toast.LENGTH_SHORT).show();
             }
