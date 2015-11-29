@@ -36,7 +36,7 @@
                     android:layout_height="150dp"
                     android:background="@null"
                     android:onClick="catalogoLivros"
-                    android:src="@drawable/cadastrolivro" />
+                    android:src="@drawable/catalogolivros" />
 
 
                 <TextView
@@ -45,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Catálogo de Livros"
+
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FF040404" />
 

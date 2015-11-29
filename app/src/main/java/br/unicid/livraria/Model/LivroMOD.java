@@ -13,6 +13,6 @@ public class LivroMOD {
     public int paginas;
     public int ano;
     public String editora;
-    public int categoria;
+    public String categoria;
     public String imagem;
 }

@@ -1,10 +1,12 @@
 package br.unicid.livraria.Model;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -48,16 +50,31 @@ public class LivroAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+
         View view = inflater.inflate(R.layout.listviewlivros, null);
 
-        TextView nome = (TextView) view.findViewById(R.id.categoria);
-        nome.setText(dados.titulo);
+        TextView titulo = (TextView) view.findViewById(R.id.titulo);
+        titulo.setText(dados.titulo);
 
-        TextView ids = (TextView) view.findViewById(R.id.ids);
-        ids.setText("" + dados.id);
+        TextView subtitulo = (TextView) view.findViewById(R.id.subtitulo);
+        subtitulo.setText(dados.subtitulo);
 
-        TextView valor = (TextView) view.findViewById(R.id.descricao);
-        valor.setText(dados.subtitulo);
+        TextView autor = (TextView) view.findViewById(R.id.autor);
+        autor.setText("autor(es): " + dados.autor);
+
+        TextView ano = (TextView) view.findViewById(R.id.ano);
+        ano.setText("Ano: " + dados.ano);
+
+        TextView id = (TextView) view.findViewById(R.id.ids);
+        id.setText("" + dados.id);
+
+
+        ImageView img = (ImageView) view.findViewById(R.id.img);
+
+        Bitmap imagem = new ConvertImage().Decodifica(dados.imagem);
+        img.setImageBitmap(imagem);
+
+
 
         return view;
     }

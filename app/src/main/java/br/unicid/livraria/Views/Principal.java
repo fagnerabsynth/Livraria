@@ -33,8 +33,10 @@ public class Principal extends AppCompatActivity {
 
 
     public void catalogoLivros(View btn) {
-
+        Intent i = new Intent(this, ListarLivros.class);
+        startActivity(i);
     }
+
 
     public void administrar(View btn) {
         Intent pulo;

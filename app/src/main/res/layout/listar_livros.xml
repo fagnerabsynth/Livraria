@@ -28,7 +28,7 @@
 
 
     <ListView
-        android:id="@+id/listaCategoria"
+        android:id="@+id/listaLivro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"></ListView>

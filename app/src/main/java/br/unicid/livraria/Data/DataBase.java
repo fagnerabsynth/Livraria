@@ -110,7 +110,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "paginas integer not null," +
                 "editora text not null," +
                 "imagem text not null," +
-                "categoria integer not null )";
+                "categoria text not null )";
 
 
         db.execSQL(query4);
@@ -214,6 +214,29 @@ public class DataBase extends SQLiteOpenHelper {
         return m;
     }
 
+
+    public CategoriaMOD pesquisaCategoria(int pesquisa) {
+        CategoriaMOD m = new CategoriaMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_CATEGORIA + " where id = ?", new String[]{"" + pesquisa});
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+
+                do {
+                    m = new CategoriaMOD();
+                    m.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    m.descricao = rs.getString(rs.getColumnIndex("descricao"));
+                    m.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                } while (rs.moveToNext());
+
+            }
+        }
+
+        return m;
+    }
+
+
     public ArrayList<CategoriaMOD> pesquisaCategoria(String pesquisa) {
         db = this.getWritableDatabase();
         ArrayList<CategoriaMOD> retorno = new ArrayList<CategoriaMOD>();
@@ -291,9 +314,9 @@ public class DataBase extends SQLiteOpenHelper {
                 do {
                     cat = new LivroMOD();
                     cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
-                    cat.categoria = Integer.parseInt(rs.getString(rs.getColumnIndex("categoria")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
                     cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
-                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("pagina")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
                     cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
                     cat.editora = rs.getString(rs.getColumnIndex("editora"));
                     cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
@@ -301,7 +324,6 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
                     cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
                     cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
-
                     retorno.add(cat);
                 } while (rs.moveToNext());
             }
@@ -313,6 +335,44 @@ public class DataBase extends SQLiteOpenHelper {
     public ArrayList<LivroMOD> pesquisaLivro() {
         return pesquisaLivro(null);
     }
+
+
+    public LivroMOD pesquisaLivro(int i) {
+        LivroMOD cat = new LivroMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " where id=?", new String[]{"" + i});
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
+                    cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
+                    cat.editora = rs.getString(rs.getColumnIndex("editora"));
+                    cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
+                    cat.autor = rs.getString(rs.getColumnIndex("autor"));
+                    cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
+                    cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+                } while (rs.moveToNext());
+            }
+        }
+        return cat;
+    }
+
+
+    public boolean apagaLivro(int v) {
+        db = getWritableDatabase();
+        try {
+            db.execSQL("DELETE FROM " + TABELA_PRODUTOS + "   " +
+                    "where id = ? ", new String[]{"" + v});
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+}
 
 
 }
