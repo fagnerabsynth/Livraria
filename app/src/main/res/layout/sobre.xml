@@ -1,86 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fece04">
+    android:background="#fece04"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/saraiva" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_span="2"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:singleLine="false"
+        android:text="Sobre O APP"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#990000"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_span="2"
+        android:gravity="center_horizontal"
+        android:singleLine="false"
+        android:text="Versão 1.0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_span="2"
+        android:gravity="center_horizontal"
+        android:singleLine="false"
+        android:text=" "
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_span="2"
+        android:gravity="center_horizontal"
+        android:singleLine="false"
+        android:text="clique na imagem"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic" />
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView" >
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Site utilizado como base:"
-                android:id="@+id/textView6" />
 
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/"
-                android:src="@drawable/saraiva"
-                android:background="#fece04" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="A Equipe:"
-                android:id="@+id/txtTeam" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <TableRow>
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton4"
-                    android:src="@drawable/kelwin"
-                    android:onClick="irKelwin" />
+                    android:id="@+id/img1"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton9"
-                    android:src="@drawable/linguicas"
-                    android:onClick="irEdu" />
+                    android:id="@+id/img2"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
+            </TableRow>
+
+            <TableRow>
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton10"
-                    android:src="@drawable/fagner"
-                    android:onClick="irFagner" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    android:id="@+id/img3"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton11"
-                    android:src="@drawable/leandro"
-                    android:onClick="irLeandro" />
+                    android:id="@+id/img4"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
+            </TableRow>
+
+
+            <TableRow>
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton12"
-                    android:src="@drawable/renan"
-                    android:onClick="irRenan" />
-            </LinearLayout>
+                    android:id="@+id/img5"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
+
+                <ImageButton
+                    android:id="@+id/img6"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="abre"
+                    android:scaleType="fitCenter" />
+            </TableRow>
+
 
         </TableLayout>
     </ScrollView>

@@ -5,12 +5,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.unicid.livraria.Model.AlunosMOD;
 import br.unicid.livraria.Model.CategoriaMOD;
 import br.unicid.livraria.Model.LivroMOD;
 import br.unicid.livraria.Model.LoginMOD;
@@ -133,7 +135,7 @@ public class DataBase extends SQLiteOpenHelper {
         //INCIO DA TABELA ALUNO
 
         //Cria a tabela alunos
-        String query3 = "Create table " + TABELA_ALUNOS + " (id integer primary key autoincrement, nome text not null ,ca text not null, imagem text not null )";
+        String query3 = "Create table " + TABELA_ALUNOS + " (id integer primary key autoincrement,celular text not null, nome text not null ,ca text not null, imagem text not null )";
         db.execSQL(query3);
 
         // vasculha para ver se o banco de dados esta vazio para inserir os alunos
@@ -143,10 +145,15 @@ public class DataBase extends SQLiteOpenHelper {
             //coloca os itens dentro de um array
             List<String[]> alunos = new ArrayList<String[]>();
             //adiciona os alunos rg e imagem do drawable
-            alunos.add(new String[]{"Ricardo Fagner Castelo Bracno", "14026201", "fagner"});
+            alunos.add(new String[]{"Ricardo Fagner Castelo Branco", "14026201", "fagner", "998107418"});
+            alunos.add(new String[]{"Eduardo de Souza Santos", "14019302", "eduardo", "970178379"});
+            alunos.add(new String[]{"Kelwin Miranda de Holanda", "14020670", "kelwin", "995739406"});
+            alunos.add(new String[]{"Leandro Silva de Oliveira", "15738558", "leandro", "958648822"});
+            alunos.add(new String[]{"André William Silva Gundim", "14004542", "andre", "987943992"});
+            alunos.add(new String[]{"Renan Ribeiro Pereira", "14022133", "renan", "952901937"});
             //da um loop p inserir cada aluno na tabela
             for (String[] x : alunos) {
-                db.execSQL("Insert into " + TABELA_ALUNOS + "(nome,ca,imagem) values (?,?,?)", x);
+                db.execSQL("Insert into " + TABELA_ALUNOS + "(nome,ca,imagem,celular) values (?,?,?,?)", x);
             }
         }
 
@@ -157,6 +164,52 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    }
+
+
+    public AlunosMOD alunos(String i) {
+        db = getWritableDatabase();
+        AlunosMOD temp;
+        temp = new AlunosMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_ALUNOS + " where id=?", new String[]{"" + i});
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    temp = new AlunosMOD();
+                    temp.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    temp.nome = rs.getString(rs.getColumnIndex("nome"));
+                    temp.celular = rs.getString(rs.getColumnIndex("celular"));
+                    temp.ca = rs.getString(rs.getColumnIndex("ca"));
+                    temp.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                } while (rs.moveToNext());
+            }
+
+        }
+        return temp;
+    }
+
+    public ArrayList<AlunosMOD> alunos() {
+        db = getReadableDatabase();
+        ArrayList<AlunosMOD> lista = new ArrayList<>();
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_ALUNOS + " ORDER BY RANDOM() ", null);
+        AlunosMOD temp = new AlunosMOD();
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    temp = new AlunosMOD();
+                    temp.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    temp.nome = rs.getString(rs.getColumnIndex("nome"));
+                    temp.celular = rs.getString(rs.getColumnIndex("celular"));
+                    temp.ca = rs.getString(rs.getColumnIndex("ca"));
+                    temp.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    lista.add(temp);
+                } while (rs.moveToNext());
+            }
+
+        }
+        return lista;
     }
 
 
@@ -240,7 +293,6 @@ public class DataBase extends SQLiteOpenHelper {
         }
         return true;
     }
-
 
 
     //altera tudo menos as senha
