@@ -67,13 +67,10 @@
             android:label="@string/title_activity_listar_tudo" />
         <activity
             android:name=".Views.DadosDoUsuario"
-            android:label="@string/title_activity_dados_do_usuario" />
+            android:label="@string/title_activity_dados_do_usuario"></activity>
         <activity
             android:name=".Views.DadosDoUsuarioEdicao"
-            android:label="@string/title_activity_dados_do_usuario_edicao" />
-        <activity
-            android:name=".Views.AlteraSenhaLogado"
-            android:label="@string/title_activity_altera_senha_logado"></activity>
+            android:label="@string/title_activity_dados_do_usuario_edicao"></activity>
     </application>
 
 </manifest>
