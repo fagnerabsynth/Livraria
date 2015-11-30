@@ -34,6 +34,11 @@
         <activity
             android:name=".Views.CadastroCategoria"
             android:label="Cadastro  Categoria" />
+
+
+        <activity
+            android:name=".Views.AlteraSenhaLogado"
+            android:label="Alterarsenha"></activity>
         <activity
             android:name=".Views.EdicaoCategoria"
             android:label="Edição  Categoria" />
