@@ -71,6 +71,9 @@
         <activity
             android:name=".Views.DadosDoUsuarioEdicao"
             android:label="@string/title_activity_dados_do_usuario_edicao"></activity>
+        <activity
+            android:name=".Views.Sobre"
+            android:label="Sobre"></activity>
     </application>
 
 </manifest>

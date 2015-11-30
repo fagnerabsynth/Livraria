@@ -74,8 +74,8 @@ public class Principal extends AppCompatActivity {
     }
 
     public void sobreAplicacao(View btn) {
-        // Intent pulo = new Intent(this,Sobre.class);
-        ///startActivity(pulo);
+        Intent pulo = new Intent(this, Sobre.class);
+        startActivity(pulo);
     }
 
 
