@@ -81,6 +81,10 @@
             android:name=".Views.Kelwin"
             android:label="@string/title_activity_kelwin" >
         </activity>
+        <activity
+            android:name=".Views.Eduardo"
+            android:label="@string/title_activity_eduardo" >
+        </activity>
     </application>
 
 </manifest>
