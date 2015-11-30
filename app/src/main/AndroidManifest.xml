@@ -85,6 +85,18 @@
             android:name=".Views.Eduardo"
             android:label="@string/title_activity_eduardo" >
         </activity>
+        <activity
+            android:name=".Views.Fagner"
+            android:label="@string/title_activity_fagner" >
+        </activity>
+        <activity
+            android:name=".Views.Leandro"
+            android:label="@string/title_activity_leandro" >
+        </activity>
+        <activity
+            android:name=".Views.Renan"
+            android:label="@string/title_activity_renan" >
+        </activity>
     </application>
 
 </manifest>

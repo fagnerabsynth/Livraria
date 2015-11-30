@@ -22,4 +22,7 @@
     <string name="title_activity_dados_do_usuario_edicao">DadosDoUsuarioEdicao</string>
     <string name="title_activity_kelwin">Kelwin</string>
     <string name="title_activity_eduardo">Eduardo</string>
+    <string name="title_activity_fagner">Fagner</string>
+    <string name="title_activity_leandro">Leandro</string>
+    <string name="title_activity_renan">Renan</string>
 </resources>
