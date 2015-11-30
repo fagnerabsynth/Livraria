@@ -29,6 +29,9 @@
             android:name=".Views.CadastroCategoria"
             android:label="Cadastro  Categoria" />
         <activity
+            android:name=".Views.EdicaoCategoria"
+            android:label="Edição  Categoria" />
+        <activity
             android:name=".Views.AlteracaoSenhaEsquecida"
             android:label="Alterar senha" />
         <activity
@@ -38,11 +41,15 @@
             android:name=".Views.ListarCategoria"
             android:label="@string/title_activity_listar_categoria" />
         <activity
-            android:name=".Views.ListaLivro"
-            android:label="@string/title_activity_lista_livro" />
+            android:name=".Views.Categoria"
+            android:label="@string/title_activity_categoria" />
+        android:label="@string/title_activity_listar_categoria" />
         <activity
             android:name=".Views.Catalogo"
-            android:label="@string/title_activity_catalogo"></activity>
+            android:label="@string/title_activity_catalogo" />
+        <activity
+            android:name=".Views.ListarLivros"
+            android:label="@string/title_activity_listar_livros"></activity>
     </application>
 
 </manifest>

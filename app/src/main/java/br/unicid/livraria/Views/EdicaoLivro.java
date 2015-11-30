@@ -31,16 +31,17 @@ import br.unicid.livraria.Model.ConvertImage;
 import br.unicid.livraria.Model.LivroMOD;
 import br.unicid.livraria.R;
 
-public class CadastroLivro extends AppCompatActivity {
+public class EdicaoLivro extends AppCompatActivity {
     private ImageButton bt2;
     private Button bt1;
 
-    private EditText imagens;
-    private String imagePath;
+    private EditText imagens, txtSubtitulo, txtAutores, txtEdicao, txtTitulo, txtPagina, txtEditora, txtAno, txtISBN;
+    private String imagePath, spnCategoria;
     private int column_index;
     private Spinner spinner;
     private DataBase item;
     private String valorSpinner;
+    private Bundle intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +51,68 @@ public class CadastroLivro extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         // getSupportActionBar().setIcon(R.drawable.saraivamini);
         getSupportActionBar().setTitle(Inicial.TITULO());
-        getSupportActionBar().setSubtitle("Cadastro de Livro");
+        getSupportActionBar().setSubtitle("Edição de Livro");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         bt2 = (ImageButton) findViewById(R.id.btn2);
-        bt2.setVisibility(View.GONE);
+        bt2.setVisibility(View.VISIBLE);
         bt1 = (Button) findViewById(R.id.btn1);
+        bt2.setVisibility(View.GONE);
         item = new DataBase(this);
 
+
         imagens = (EditText) findViewById(R.id.imagens);
+        txtSubtitulo = (EditText) findViewById(R.id.txtSubtitulo);
+
+        txtAutores = (EditText) findViewById(R.id.txtAutores);
+        txtEdicao = (EditText) findViewById(R.id.txtEdicao);
+        txtTitulo = (EditText) findViewById(R.id.txtTitulo);
+        txtPagina = (EditText) findViewById(R.id.txtPagina);
+        txtEditora = (EditText) findViewById(R.id.txtEditora);
+        txtAno = (EditText) findViewById(R.id.txtAno);
+
+        txtISBN = (EditText) findViewById(R.id.txtISBN);
+
+
+        intent = getIntent().getExtras();
+        imagens.setText(intent.getString("imagem"));
+
+        txtSubtitulo.setText(intent.getString("subtitulo"));
+        txtTitulo.setText(intent.getString("titulo"));
+        txtISBN.setText(intent.getString("isbn"));
+        txtEdicao.setText(intent.getString("edicao"));
+        txtAno.setText(intent.getString("ano"));
+        txtEditora.setText(intent.getString("editora"));
+        txtPagina.setText(intent.getString("paginas"));
+        txtAutores.setText(intent.getString("autor"));
+        spnCategoria = intent.getString("categoria");
+
+        bt1.setVisibility(View.GONE);
+        bt2.setVisibility(View.VISIBLE);
+
+        imagens.setText(intent.getString("imagem"));
+
+        Bitmap imagem = new ConvertImage().Decodifica(intent.getString("imagem"));
+        bt2.setImageBitmap(imagem);
+
+        Button btn4 = (Button) findViewById(R.id.btn4);
+        btn4.setText("Alterar Livro");
 
         spinner = (Spinner) findViewById(R.id.spnCategoria);
+
         criaSpinner();
+        spinner.setSelection(((ArrayAdapter<String>) spinner.getAdapter()).getPosition(spnCategoria));
+
     }
 
     public void PegaImagem(View b) {
 
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 1);
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, 1);
     }
 
     public void abreGaleria(int req_code) {
@@ -162,6 +203,7 @@ public class CadastroLivro extends AppCompatActivity {
         String sp = spinner.getSelectedItem().toString();
 
         LivroMOD l = new LivroMOD();
+        l.id = Integer.parseInt(intent.getString("id"));
         String erro = "";
 
         if (TextUtils.isEmpty(sp)) {
@@ -286,7 +328,7 @@ public class CadastroLivro extends AppCompatActivity {
         } else {
 
             if (item.cadastraLivro(l)) {
-                Toast.makeText(this, "Livro cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Livro alterado com sucesso!", Toast.LENGTH_SHORT).show();
                 txtAno.setText("");
                 txtAutores.setText("");
                 txtEdicao.setText("");
@@ -299,7 +341,8 @@ public class CadastroLivro extends AppCompatActivity {
                 spinner.setSelection(0);
                 bt2.setVisibility(View.GONE);
                 bt1.setVisibility(View.VISIBLE);
-
+                setResult(AppCompatActivity.RESULT_OK, new Intent());
+                onBackPressed();
             } else {
                 Toast.makeText(this, "Livro encontrado no sistema!", Toast.LENGTH_SHORT).show();
             }
@@ -331,6 +374,7 @@ public class CadastroLivro extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
+
 
     }
 

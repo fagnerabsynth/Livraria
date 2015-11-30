@@ -13,6 +13,8 @@ import java.util.List;
 
 import br.unicid.livraria.Model.CategoriaMOD;
 import br.unicid.livraria.Model.LivroMOD;
+import br.unicid.livraria.Model.LoginMOD;
+import br.unicid.livraria.Views.Login;
 
 /**
  * Created by Fagner on 11/11/2015.
@@ -59,15 +61,25 @@ public class DataBase extends SQLiteOpenHelper {
         //adicionei o valor unique para impedir usuarios com o menos login... deixa de modo unico
         String query1 = "Create table " + TABELA_USUARIOS + "( " +
                 "id integer primary key autoincrement," +
-                " usuario text not null unique, " +
-                "senha text not null);";
-        db.execSQL(query1);
+                "senha text not null," +
+                "nome text not null," +
+                "imagem text," +
+                "email text not null unique," +
+                "telefone text not null," +
+                "endereco text not null," +
+                "complemento text," +
+                "bairro text not null," +
+                "cidade text not null," +
+                "cep text not null," +
+                "estado text not null)";
 
+
+        db.execSQL(query1);
         //adiciona o usuario admin e a senha admin
         Cursor rs1 = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS, null);
         if (rs1.getCount() == 0) {
-            String[] dadosAdmin = {"admin", md5("admin")};
-            db.execSQL("Insert into " + TABELA_USUARIOS + "(usuario,senha) values (?,?)", dadosAdmin);
+            String[] dadosAdmin = {md5("admin"), "Administrador", "", "admin@admin.com", "0000-0000", "servidorlandia", "", "Vila PC", "Sum Paulu", "SP", "03309-000"};
+            db.execSQL("Insert into " + TABELA_USUARIOS + "(senha,nome,imagem,email,telefone,endereco,complemento,bairro,cidade,estado,cep) values (?,?,?,?,?,?,?,?,?,?,?)", dadosAdmin);
         }
 
         //FIM DA TABELA USUARIOS
@@ -110,7 +122,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "paginas integer not null," +
                 "editora text not null," +
                 "imagem text not null," +
-                "categoria integer not null )";
+                "categoria text not null )";
 
 
         db.execSQL(query4);
@@ -147,12 +159,54 @@ public class DataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+
+    //retorna os dados login do usuario
+    public LoginMOD login(String email) {
+        db = this.getWritableDatabase();
+        String[] dados = {email};
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where email = ? limit 0,1", dados);
+        LoginMOD l = new LoginMOD();
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    l.bairro = rs.getString(rs.getColumnIndex("bairro"));
+                    l.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    l.cep = rs.getString(rs.getColumnIndex("cep"));
+                    l.cidade = rs.getString(rs.getColumnIndex("cidade"));
+                    l.complemento = rs.getString(rs.getColumnIndex("complemento"));
+                    l.senha = rs.getString(rs.getColumnIndex("senha"));
+                    l.email = rs.getString(rs.getColumnIndex("email"));
+                    l.endereco = rs.getString(rs.getColumnIndex("endereco"));
+                    l.estado = rs.getString(rs.getColumnIndex("estado"));
+                    l.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    l.nome = rs.getString(rs.getColumnIndex("nome"));
+                    l.telefone = rs.getString(rs.getColumnIndex("telefone"));
+                } while (rs.moveToNext());
+            }
+        }
+        return l;
+    }
+
+
     //verifica o login do usuario
     public boolean login(String usuario, String senha) {
         db = this.getWritableDatabase();
         String[] dados = {usuario, md5(senha)};
-        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where usuario = ? and senha = ?", dados);
-        return rs.getCount() == 1;
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where email = ? and senha = ? limit 0,1", dados);
+        boolean r = rs.getCount() == 1;
+        if (r) {
+
+            if (rs.getCount() > 0) {
+                if (rs.moveToFirst()) {
+                    do {
+                        Login.Registra(rs.getString(rs.getColumnIndex("email")), rs.getString(rs.getColumnIndex("nome")));
+                    } while (rs.moveToNext());
+                }
+            }
+
+
+        }
+        return r;
     }
 
 
@@ -160,7 +214,7 @@ public class DataBase extends SQLiteOpenHelper {
     public boolean pesquisaUsuario(String usuario) {
         db = this.getWritableDatabase();
         String[] dados = {usuario};
-        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where usuario = ? ", dados);
+        Cursor rs = db.rawQuery("SELECT * FROM " + TABELA_USUARIOS + " where email = ? ", dados);
         return rs.getCount() == 1;
     }
 
@@ -169,7 +223,29 @@ public class DataBase extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         String[] dados = {md5(senha), usuario};
         try {
-            db.execSQL("UPDATE " + TABELA_USUARIOS + " SET senha = ? where usuario = ? ", dados);
+            db.execSQL("UPDATE " + TABELA_USUARIOS + " SET senha = ? where email = ? ", dados);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    //altera tudo menos as senha
+    public boolean alteraSenha(LoginMOD d) {
+        db = this.getWritableDatabase();
+        String[] dados = {d.imagem, d.endereco, d.email, d.complemento, d.cep, d.bairro, d.nome, d.estado, d.telefone, d.cidade, "" + d.id};
+        try {
+            db.execSQL("UPDATE " + TABELA_USUARIOS + " SET imagem=?,endereco=?," +
+                    "email=?," +
+                    "complemento=?," +
+                    "cep=?," +
+                    "bairro=?," +
+                    "nome=?," +
+                    "estado=?," +
+                    "telefone=?," +
+                    "cidade=? where id = ? ", dados);
+            Login.Registra(d.email, d.nome);
+
         } catch (Exception e) {
             return false;
         }
@@ -213,6 +289,29 @@ public class DataBase extends SQLiteOpenHelper {
 
         return m;
     }
+
+
+    public CategoriaMOD pesquisaCategoria(int pesquisa) {
+        CategoriaMOD m = new CategoriaMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_CATEGORIA + " where id = ?", new String[]{"" + pesquisa});
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+
+                do {
+                    m = new CategoriaMOD();
+                    m.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    m.descricao = rs.getString(rs.getColumnIndex("descricao"));
+                    m.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                } while (rs.moveToNext());
+
+            }
+        }
+
+        return m;
+    }
+
 
     public ArrayList<CategoriaMOD> pesquisaCategoria(String pesquisa) {
         db = this.getWritableDatabase();
@@ -291,9 +390,9 @@ public class DataBase extends SQLiteOpenHelper {
                 do {
                     cat = new LivroMOD();
                     cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
-                    cat.categoria = Integer.parseInt(rs.getString(rs.getColumnIndex("categoria")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
                     cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
-                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("pagina")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
                     cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
                     cat.editora = rs.getString(rs.getColumnIndex("editora"));
                     cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
@@ -301,7 +400,40 @@ public class DataBase extends SQLiteOpenHelper {
                     cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
                     cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
                     cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+                    retorno.add(cat);
+                } while (rs.moveToNext());
+            }
+        }
+        return retorno;
+    }
 
+
+    public ArrayList<LivroMOD> pesquisaLivro(String pesquisa, int x) {
+        db = this.getWritableDatabase();
+        ArrayList<LivroMOD> retorno = new ArrayList<LivroMOD>();
+        String query;
+        Cursor rs;
+        if (TextUtils.isEmpty(pesquisa)) {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " order by titulo asc", null);
+        } else {
+            rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " where categoria = ? order by titulo asc", new String[]{pesquisa});
+        }
+        LivroMOD cat;
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat = new LivroMOD();
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
+                    cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
+                    cat.editora = rs.getString(rs.getColumnIndex("editora"));
+                    cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
+                    cat.autor = rs.getString(rs.getColumnIndex("autor"));
+                    cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
+                    cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
                     retorno.add(cat);
                 } while (rs.moveToNext());
             }
@@ -312,6 +444,45 @@ public class DataBase extends SQLiteOpenHelper {
 
     public ArrayList<LivroMOD> pesquisaLivro() {
         return pesquisaLivro(null);
+    }
+
+
+    public LivroMOD pesquisaLivro(int i) {
+        LivroMOD cat = new LivroMOD();
+        Cursor rs;
+        rs = db.rawQuery("select * from " + TABELA_PRODUTOS + " where id=?", new String[]{"" + i});
+
+        if (rs.getCount() > 0) {
+            if (rs.moveToFirst()) {
+                do {
+                    cat.id = Integer.parseInt(rs.getString(rs.getColumnIndex("id")));
+                    cat.categoria = rs.getString(rs.getColumnIndex("categoria"));
+                    cat.ano = Integer.parseInt(rs.getString(rs.getColumnIndex("ano")));
+                    cat.paginas = Integer.parseInt(rs.getString(rs.getColumnIndex("paginas")));
+                    cat.titulo = rs.getString(rs.getColumnIndex("titulo"));
+                    cat.editora = rs.getString(rs.getColumnIndex("editora"));
+                    cat.edicao = rs.getString(rs.getColumnIndex("edicao"));
+                    cat.autor = rs.getString(rs.getColumnIndex("autor"));
+                    cat.imagem = rs.getString(rs.getColumnIndex("imagem"));
+                    cat.isbn = rs.getString(rs.getColumnIndex("isbn"));
+                    cat.subtitulo = rs.getString(rs.getColumnIndex("subtitulo"));
+
+                } while (rs.moveToNext());
+            }
+        }
+        return cat;
+    }
+
+
+    public boolean apagaLivro(int v) {
+        db = getWritableDatabase();
+        try {
+            db.execSQL("DELETE FROM " + TABELA_PRODUTOS + "   " +
+                    "where id = ? ", new String[]{"" + v});
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
 

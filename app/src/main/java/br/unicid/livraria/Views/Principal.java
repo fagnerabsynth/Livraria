@@ -6,14 +6,22 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import br.unicid.livraria.Inicial;
 import br.unicid.livraria.R;
 
 
 public class Principal extends AppCompatActivity {
+
+    boolean sessao;
+
+    private ImageButton btnEncerrar;
+    private TextView txtEncerrar;
 
 
     @Override
@@ -28,13 +36,30 @@ public class Principal extends AppCompatActivity {
         //   getSupportActionBar().setHomeButtonEnabled(true);
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        btnEncerrar = (ImageButton) findViewById(R.id.btnEncerrar);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
+        String valor = pref.getString("sessao", null);
+
+        txtEncerrar = (TextView) findViewById(R.id.txtEncerrar);
+
+
+        sessao = !TextUtils.isEmpty(valor);
+        if (sessao) {
+            txtEncerrar.setText("Fechar Sessão");
+        } else {
+            txtEncerrar.setText("Fechar APP");
+        }
 
     }
+
 
 
     public void catalogoLivros(View btn) {
-
+        Intent i = new Intent(this, ListarTudo.class);
+        startActivity(i);
     }
+
 
     public void administrar(View btn) {
         Intent pulo;
@@ -49,20 +74,29 @@ public class Principal extends AppCompatActivity {
     }
 
     public void sobreAplicacao(View btn) {
-
         // Intent pulo = new Intent(this,Sobre.class);
-
         ///startActivity(pulo);
-
     }
 
+
     public void finalizarSessao(View btn) {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.commit();
-        Intent pulo = new Intent(this, Inicial.class);
-        startActivity(pulo);
-        finish();
+        if (sessao) {
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.remove("sessao");
+            editor.commit();
+            Intent intentado = new Intent(this, Inicial.class);
+            startActivity(intentado);
+            finish();
+        } else {
+            Intent i = new Intent(Intent.ACTION_MAIN);
+            i.addCategory(Intent.CATEGORY_HOME);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
+            System.exit(0);
+        }
+
     }
 
 

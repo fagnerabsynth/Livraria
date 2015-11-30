@@ -15,6 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/saraiva" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -36,7 +40,7 @@
                     android:layout_height="150dp"
                     android:background="@null"
                     android:onClick="catalogoLivros"
-                    android:src="@drawable/cadastrolivro" />
+                    android:src="@drawable/catalogolivros" />
 
 
                 <TextView
@@ -45,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Catálogo de Livros"
+
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FF040404" />
 
@@ -113,10 +118,9 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButton4"
+                    android:id="@+id/btnEncerrar"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-
                     android:background="@null"
                     android:onClick="finalizarSessao"
                     android:src="@drawable/logout" />
@@ -133,5 +137,5 @@
             </LinearLayout>
         </TableRow>
     </TableLayout>
-
+    </ScrollView>
 </LinearLayout>

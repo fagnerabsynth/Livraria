@@ -27,7 +27,7 @@ import br.unicid.livraria.Model.LivroAdapter;
 import br.unicid.livraria.Model.LivroMOD;
 import br.unicid.livraria.R;
 
-public class ListarLivros extends AppCompatActivity {
+public class ListarLivrosTodos extends AppCompatActivity {
 
     protected static final int Opcao1 = 1;
     protected static final int Opcao2 = 2;
@@ -43,7 +43,7 @@ public class ListarLivros extends AppCompatActivity {
         setContentView(R.layout.listar_livros);
 
         pesquisarCategoria = (EditText) findViewById(R.id.pesquisarCategoria);
-
+        pesquisarCategoria.setVisibility(View.GONE);
 
         pesquisarCategoria.addTextChangedListener(new TextWatcher() {
             @Override
@@ -117,9 +117,7 @@ public class ListarLivros extends AppCompatActivity {
         boolean sessao = !TextUtils.isEmpty(valor);
 
 
-
-
-        listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -219,7 +217,6 @@ public class ListarLivros extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

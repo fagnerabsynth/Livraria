@@ -30,7 +30,7 @@ public class ConvertImage {
     private String getEncoded64ImageStringFromBitmap(Bitmap bitmap) {
 
         //para diminuir o tamanho... ele processa e transforma em 200 x 200 pixels
-        bitmap = Bitmap.createScaledBitmap(bitmap, 200, 200, true);
+        bitmap = Bitmap.createScaledBitmap(bitmap, 140, 140, true);
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);

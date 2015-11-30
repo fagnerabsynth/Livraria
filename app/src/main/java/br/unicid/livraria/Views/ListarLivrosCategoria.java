@@ -6,33 +6,34 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.unicid.livraria.Data.DataBase;
 import br.unicid.livraria.Inicial;
+import br.unicid.livraria.Model.CategoriaMOD;
 import br.unicid.livraria.Model.LivroAdapter;
 import br.unicid.livraria.Model.LivroMOD;
 import br.unicid.livraria.R;
 
-public class ListarLivros extends AppCompatActivity {
+public class ListarLivrosCategoria extends AppCompatActivity {
 
     protected static final int Opcao1 = 1;
     protected static final int Opcao2 = 2;
     protected static final int Opcao3 = 3;
-    private EditText pesquisarCategoria;
+    private Spinner spinner;
     private ListView listView;
     private DataBase con;
 
@@ -40,28 +41,47 @@ public class ListarLivros extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listar_livros);
+        setContentView(R.layout.listar_livros_categoria);
 
-        pesquisarCategoria = (EditText) findViewById(R.id.pesquisarCategoria);
+        con = new DataBase(this);
+        spinner = (Spinner) findViewById(R.id.pesquisarCategoria);
 
 
-        pesquisarCategoria.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 iniciar();
             }
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
             }
         });
-        iniciar();
+
+        criaSpinner();
+
     }
 
+
+    private void criaSpinner() {
+        spinner.setPrompt("Seleciona uma categoria");
+
+        List<String> list = new ArrayList<String>();
+        list.add("");
+
+
+        ArrayList<CategoriaMOD> dados = con.pesquisaCategoria();
+        if (!dados.isEmpty()) {
+            for (CategoriaMOD x : dados) {
+                list.add(x.categoria);
+            }
+        }
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,15 +115,14 @@ public class ListarLivros extends AppCompatActivity {
 
 
     private void iniciar() {
-        String pesquisa = pesquisarCategoria.getText().toString();
-        con = new DataBase(this);
+        String pesquisa = spinner.getSelectedItem().toString();
         ArrayList<LivroMOD> cat;
 
         if (TextUtils.isEmpty(pesquisa)) {
             cat = con.pesquisaLivro();
 
         } else {
-            cat = con.pesquisaLivro(pesquisa);
+            cat = con.pesquisaLivro(pesquisa, 0);
         }
 
 
@@ -117,9 +136,7 @@ public class ListarLivros extends AppCompatActivity {
         boolean sessao = !TextUtils.isEmpty(valor);
 
 
-
-
-        listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -219,7 +236,6 @@ public class ListarLivros extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

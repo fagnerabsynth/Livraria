@@ -12,58 +12,41 @@ import android.view.View;
 import br.unicid.livraria.Inicial;
 import br.unicid.livraria.R;
 
-
-public class Administracao extends AppCompatActivity {
+public class ListarTudo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.administracao);
-
-
+        setContentView(R.layout.listar_tudo);
     }
 
-    public void cadastroLivros(View btn) {
-        Intent pulo = new Intent(this, CadastroLivro.class);
-        startActivity(pulo);
+    public void ListarLivros(View b) {
+        Intent i = new Intent(this, ListarLivros.class);
+        startActivity(i);
+    }
+
+    public void ListarLivrosTodos(View b) {
+        Intent i = new Intent(this, ListarLivrosTodos.class);
+        startActivity(i);
+    }
+
+    public void ListarLivrosCategoria(View b) {
+        Intent i = new Intent(this, ListarLivrosCategoria.class);
+        startActivity(i);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(Inicial.Cor())));
         getSupportActionBar().setTitle(Inicial.TITULO());
-        getSupportActionBar().setSubtitle("Administração");
+        getSupportActionBar().setSubtitle("Pesquisa categoria");
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-
-        //getMenuInflater().inflate(R.menu.administracao, menu);
         return true;
-    }
-
-    public void listarLivros(View e) {
-        Intent i = new Intent(this, ListarLivros.class);
-        startActivity(i);
-    }
-
-    public void perfil(View e) {
-        Intent i = new Intent(this, DadosDoUsuario.class);
-        startActivity(i);
-    }
-
-    public void listarCategoria(View e) {
-        Intent i = new Intent(this, ListarCategoria.class);
-        startActivity(i);
-    }
-
-    public void cadastraCategoria(View e) {
-        Intent i = new Intent(this, CadastroCategoria.class);
-        startActivity(i);
     }
 
     @Override
