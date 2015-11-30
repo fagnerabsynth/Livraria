@@ -69,9 +69,9 @@ public class CadastroLivro extends AppCompatActivity {
 
     public void PegaImagem(View b) {
 
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, 1);
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, 1);
     }
 
     public void abreGaleria(int req_code) {
@@ -130,7 +130,7 @@ public class CadastroLivro extends AppCompatActivity {
                 String filePath = getPath(selectedImage);
                 String file_extn = filePath.substring(filePath.lastIndexOf(".") + 1);
 
-                Toast.makeText(this, "Imagem: " + filePath, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Selecionando a Imagem:\n" + filePath, Toast.LENGTH_LONG).show();
                 if (file_extn.equals("img") || file_extn.equals("jpg") || file_extn.equals("jpeg") || file_extn.equals("gif") || file_extn.equals("png")) {
 
                     Bitmap bitmap = null;

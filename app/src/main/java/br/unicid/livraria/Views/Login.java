@@ -19,14 +19,28 @@ import br.unicid.livraria.R;
 
 public class Login extends AppCompatActivity {
 
+    private static String usr, nmclt;
+    public String nomeUsuario;
     private EditText lblUsuario, lblSenha;
+
+    public static void Registra(String usuario, String nomeCompleto) {
+        usr = usuario;
+        nmclt = nomeCompleto;
+    }
+
+    public static String getSESSAO() {
+        return usr;
+    }
+
+    public static String getNOME() {
+        return nmclt;
+    }
 
     public void alterarSenha(View v) {
         Intent i;
         i = new Intent(this, AlteracaoSenhaEsquecida.class);
         startActivity(i);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +92,21 @@ public class Login extends AppCompatActivity {
             if (!conexao.login(usuario, senha)) {
                 Toast.makeText(this, "Usuário e Senha estão incorretos!!", Toast.LENGTH_SHORT).show();
             } else {
-                Intent i;
-                i = new Intent(this, Inicial.class);
+
+
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("sessao", 0);
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putString("sessao", usuario);
+                editor.putString("sessao", usr);
                 editor.commit();
-                Toast.makeText(this, "Seja bem vindo " + usuario, Toast.LENGTH_LONG).show();
+                pref = getApplicationContext().getSharedPreferences("nome", 0);
+                editor = pref.edit();
+                editor.putString("nome", nmclt);
+                editor.commit();
+                nomeUsuario = nmclt;
+
+                Intent i;
+                i = new Intent(this, Inicial.class);
+                Toast.makeText(this, "Seja bem vindo " + nomeUsuario, Toast.LENGTH_LONG).show();
                 startActivity(i);
                 finish();
             }
@@ -94,7 +116,6 @@ public class Login extends AppCompatActivity {
         }
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

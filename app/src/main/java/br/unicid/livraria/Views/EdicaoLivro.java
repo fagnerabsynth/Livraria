@@ -171,7 +171,7 @@ public class EdicaoLivro extends AppCompatActivity {
                 String filePath = getPath(selectedImage);
                 String file_extn = filePath.substring(filePath.lastIndexOf(".") + 1);
 
-                Toast.makeText(this, "Imagem: " + filePath, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Selecionando a Imagem:\n" + filePath, Toast.LENGTH_LONG).show();
                 if (file_extn.equals("img") || file_extn.equals("jpg") || file_extn.equals("jpeg") || file_extn.equals("gif") || file_extn.equals("png")) {
 
                     Bitmap bitmap = null;

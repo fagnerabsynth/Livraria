@@ -31,14 +31,16 @@
             <TableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill">
+                android:layout_gravity="fill"
+                android:stretchColumns="0,1">
 
-                <TableRow android:padding="10dp">
+                <TableRow android:paddingLeft="10dp">
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Usuário:"
+                        android:layout_column="0"
+                        android:text="Email:"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="#040404" />
 
@@ -46,8 +48,8 @@
                         android:id="@+id/lblUsuario"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Digite seu usuário"
-                        android:textColor="#a0a1a1" />
+                        android:layout_column="1"
+                        android:hint="Ex. admin@admin.com" />
                 </TableRow>
 
                 <TableRow android:padding="10dp">
@@ -55,6 +57,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:layout_column="0"
                         android:text="Senha:"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="#040404" />
@@ -63,27 +66,35 @@
                         android:id="@+id/lblSenha"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:layout_column="1"
                         android:hint="Digite a sua Senha"
                         android:inputType="textVisiblePassword"
                         android:password="true"
-                        android:text=""
-                        android:textColor="#a0a1a1" />
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:background="@android:color/transparent"
+                        android:onClick="logIn"
+                        android:text="Logar" />
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:background="@android:color/transparent"
+                        android:onClick="alterarSenha"
+                        android:text="Esqueceu a Senha?" />
                 </TableRow>
             </TableLayout>
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:onClick="logIn"
-                android:text="Logar" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:onClick="alterarSenha"
-                android:text="Esqueceu a Senha?" />
 
         </LinearLayout>
     </ScrollView>
