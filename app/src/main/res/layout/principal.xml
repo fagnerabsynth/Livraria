@@ -19,123 +19,124 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal">
 
-        <TableRow
+        <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center_horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal">
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:background="@null"
-                    android:onClick="catalogoLivros"
-                    android:src="@drawable/catalogolivros" />
-
-
-                <TextView
-                    android:id="@+id/txtCatalogo"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Catálogo de Livros"
+                    android:orientation="vertical">
 
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#FF040404" />
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@null"
+                        android:onClick="catalogoLivros"
+                        android:src="@drawable/catalogolivros" />
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtCatalogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Catálogo de Livros"
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:background="@null"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FF040404" />
 
-                    android:onClick="administrar"
-                    android:src="@drawable/administrator" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txtAdm"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Administração"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#FF040404" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@null"
 
-        </TableRow>
+                        android:onClick="administrar"
+                        android:src="@drawable/administrator" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/txtAdm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Administração"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FF040404" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+            </TableRow>
 
-                    android:background="@null"
-                    android:onClick="sobreAplicacao"
-                    android:src="@drawable/about" />
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal">
 
-                <TextView
-                    android:id="@+id/txtAbout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Sobre o Aplicativo"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#FF040404" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                        android:background="@null"
+                        android:onClick="sobreAplicacao"
+                        android:src="@drawable/about" />
 
-                <ImageButton
-                    android:id="@+id/btnEncerrar"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:background="@null"
-                    android:onClick="finalizarSessao"
-                    android:src="@drawable/logout" />
+                    <TextView
+                        android:id="@+id/txtAbout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Sobre o Aplicativo"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FF040404" />
 
-                <TextView
-                    android:id="@+id/txtEncerrar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Encerrar"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#FF040404" />
+                </LinearLayout>
 
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnEncerrar"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@null"
+                        android:onClick="finalizarSessao"
+                        android:src="@drawable/logout" />
+
+                    <TextView
+                        android:id="@+id/txtEncerrar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Encerrar"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FF040404" />
+
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
     </ScrollView>
 </LinearLayout>

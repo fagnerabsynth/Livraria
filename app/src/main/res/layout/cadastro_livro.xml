@@ -20,207 +20,207 @@
             android:layout_height="wrap_content"
             android:src="@drawable/saraiva" />
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="0,1">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="0,1">
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ISBN:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ISBN:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtISBN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtISBN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Título:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Título:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtTitulo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subtitulo:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subtitulo:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtSubtitulo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtSubtitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edição:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edição:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtEdicao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
-
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Autor(es):"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <EditText
-                    android:id="@+id/txtAutores"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtEdicao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
 
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Páginas:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Autor(es):"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtPagina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="number" />
-            </TableRow>
-
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ano:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <EditText
-                    android:id="@+id/txtAno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="number" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtAutores"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
 
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Editora:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Páginas:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText
-                    android:id="@+id/txtEditora"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtPagina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number" />
+                </TableRow>
 
 
-            <TableRow>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Categoria:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ano:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <Spinner
-                    android:id="@+id/spnCategoria"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </TableRow>
+                    <EditText
+                        android:id="@+id/txtAno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number" />
+                </TableRow>
 
-            <TableRow android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/imagens"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:text="" />
-            </TableRow>
+                <TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Editora:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:text="Imagem:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <EditText
+                        android:id="@+id/txtEditora"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
+
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Categoria:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <Spinner
+                        android:id="@+id/spnCategoria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/imagens"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="Imagem:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:onClick="PegaImagem"
+                        android:text="Enviar imagem"
+                        android:visibility="visible" />
+
+                    <ImageButton
+                        android:id="@+id/btn2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="PegaImagem"
+                        android:scaleType="fitXY"
+                        android:visibility="gone" />
+
+                </TableRow>
 
                 <Button
-                    android:id="@+id/btn1"
+                    android:id="@+id/btn4"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_gravity="center"
                     android:background="@android:color/transparent"
-                    android:onClick="PegaImagem"
-                    android:text="Enviar imagem"
-                    android:visibility="visible" />
-
-                <ImageButton
-                    android:id="@+id/btn2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:background="@android:color/transparent"
-                    android:onClick="PegaImagem"
-                    android:scaleType="fitXY"
-                    android:visibility="gone" />
-
-            </TableRow>
-
-            <Button
-                android:id="@+id/btn4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:onClick="cadastroDoLivro"
-                android:text="Cadastrar Livro" />
-        </TableLayout>
+                    android:onClick="cadastroDoLivro"
+                    android:text="Cadastrar Livro" />
+            </TableLayout>
 
 
-    </ScrollView>
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>

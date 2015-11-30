@@ -18,37 +18,37 @@
         android:src="@drawable/saraiva" />
 
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:text="Carregando" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="Carregando" />
 
-            <ProgressBar
-                android:id="@+id/indicador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <ProgressBar
+            android:id="@+id/indicador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:indeterminateOnly="true"
-                android:keepScreenOn="true" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminateOnly="true"
+            android:keepScreenOn="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:text="Aguarde, por favor!" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="Aguarde, por favor!" />
+    </LinearLayout>
 
 
 </LinearLayout>

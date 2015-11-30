@@ -117,8 +117,6 @@ public class ListarLivros extends AppCompatActivity {
         boolean sessao = !TextUtils.isEmpty(valor);
 
 
-
-
         listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -219,7 +217,6 @@ public class ListarLivros extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

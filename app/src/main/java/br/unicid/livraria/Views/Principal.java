@@ -54,7 +54,6 @@ public class Principal extends AppCompatActivity {
     }
 
 
-
     public void catalogoLivros(View btn) {
         Intent i = new Intent(this, ListarTudo.class);
         startActivity(i);

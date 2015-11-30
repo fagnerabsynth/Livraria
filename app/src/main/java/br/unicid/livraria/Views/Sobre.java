@@ -1,26 +1,16 @@
 package br.unicid.livraria.Views;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import br.unicid.livraria.Data.DataBase;
 import br.unicid.livraria.Inicial;
@@ -29,16 +19,16 @@ import br.unicid.livraria.R;
 
 public class Sobre extends AppCompatActivity {
 
+    DataBase con;
+    private ImageButton img1, img2, img3, img4, img5, img6;
+    private int aluno1, aluno2, aluno3, aluno4, aluno5, aluno6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sobre);
         inicia();
     }
-
-    DataBase con;
-    private ImageButton img1, img2, img3, img4, img5, img6;
-    private int aluno1, aluno2, aluno3, aluno4, aluno5, aluno6;
 
     private void inicia() {
         con = new DataBase(this);

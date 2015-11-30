@@ -19,6 +19,7 @@ public class Livro extends AppCompatActivity {
 
     private TextView titulo, subtitulo, autor, paginas, edicao, ano, categoria, isbn;
     private ImageView imagem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

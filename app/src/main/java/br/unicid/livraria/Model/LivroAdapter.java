@@ -75,7 +75,6 @@ public class LivroAdapter extends BaseAdapter {
         img.setImageBitmap(imagem);
 
 
-
         return view;
     }
 }

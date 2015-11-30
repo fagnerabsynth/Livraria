@@ -1,54 +1,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fece04"
     android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="br.unicid.livraria.Views.Fagner"
-    android:background="#fece04">
+    tools:context="br.unicid.livraria.Views.Fagner">
 
     <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center_horizontal"
         android:text="Fagner"
-        android:id="@+id/textView7"
-        android:layout_gravity="center_horizontal" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView4"
-        android:src="@drawable/fagner2"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/fagner2" />
+
+    <TextView
+        android:id="@+id/txtf1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Ricardo Fagner Castelo Branco"
-        android:id="@+id/txtf1" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/txte2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Rgm:  "
-        android:id="@+id/txte2" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Ciência da Computacão"
-        android:id="@+id/textView10" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Semestre: 4A"
-        android:id="@+id/textView11" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

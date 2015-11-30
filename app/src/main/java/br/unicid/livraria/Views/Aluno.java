@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +20,10 @@ import br.unicid.livraria.R;
 
 public class Aluno extends AppCompatActivity {
 
+    int id;
+    private AlunosMOD a;
+    private DataBase con;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +33,6 @@ public class Aluno extends AppCompatActivity {
         setResult(AppCompatActivity.RESULT_OK, new Intent());
 
     }
-
-    int id;
-    private AlunosMOD a;
-    private DataBase con;
 
     private void inicia() {
         con = new DataBase(this);

@@ -57,7 +57,6 @@ public class Administracao extends AppCompatActivity {
     }
 
 
-
     public void perfil(View e) {
         Intent i = new Intent(this, DadosDoUsuario.class);
         startActivity(i);
