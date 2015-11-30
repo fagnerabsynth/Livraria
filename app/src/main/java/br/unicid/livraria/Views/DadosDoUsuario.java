@@ -53,6 +53,8 @@ public class DadosDoUsuario extends AppCompatActivity {
         t.setText(Logado.nome);
         t = (TextView) findViewById(R.id.txtEMAIL);
         t.setText("Email: " + Logado.email);
+        t = (TextView) findViewById(R.id.txtCEP);
+        t.setText("CEP: " + Logado.cep);
         t = (TextView) findViewById(R.id.txtBAIRRO);
         t.setText("Bairro: " + Logado.bairro);
         t = (TextView) findViewById(R.id.txtCIDADE);
@@ -70,6 +72,10 @@ public class DadosDoUsuario extends AppCompatActivity {
 
     }
 
+    public void alterarSenha(View v) {
+        Intent i = new Intent(this, AlteraSenhaLogado.class);
+        startActivity(i);
+    }
 
     public void alterarDados(View v) {
         Intent i = new Intent(this, DadosDoUsuarioEdicao.class);

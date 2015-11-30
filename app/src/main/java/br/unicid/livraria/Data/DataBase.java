@@ -230,6 +230,19 @@ public class DataBase extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean alteraSenha(int id, String senha) {
+        db = this.getWritableDatabase();
+        String[] dados = {md5(senha), "" + id};
+        try {
+            db.execSQL("UPDATE " + TABELA_USUARIOS + " SET senha = ? where id = ? ", dados);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+
+
     //altera tudo menos as senha
     public boolean alteraSenha(LoginMOD d) {
         db = this.getWritableDatabase();

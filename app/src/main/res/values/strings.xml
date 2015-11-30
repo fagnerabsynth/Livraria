@@ -20,4 +20,5 @@
     <string name="title_activity_listar_tudo">ListarTudo</string>
     <string name="title_activity_dados_do_usuario">DadosDoUsuario</string>
     <string name="title_activity_dados_do_usuario_edicao">DadosDoUsuarioEdicao</string>
+    <string name="title_activity_altera_senha_logado">AlteraSenhaLogado</string>
 </resources>

@@ -51,6 +51,13 @@ public class Administracao extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void alterarSenha(View v) {
+        Intent i = new Intent(this, AlteraSenhaLogado.class);
+        startActivity(i);
+    }
+
+
+
     public void perfil(View e) {
         Intent i = new Intent(this, DadosDoUsuario.class);
         startActivity(i);

@@ -194,6 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_gravity="center"
+                    android:background="@android:color/transparent"
                     android:onClick="PegaImagem"
                     android:text="Enviar imagem"
                     android:visibility="visible" />
