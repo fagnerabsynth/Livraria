@@ -43,19 +43,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton4"
-                    android:src="@drawable/kelwin" />
+                    android:src="@drawable/kelwin"
+                    android:onClick="irKelwin" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton9"
-                    android:src="@drawable/linguicas" />
+                    android:src="@drawable/linguicas"
+                    android:onClick="irEdu" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton10"
-                    android:src="@drawable/fagner" />
+                    android:src="@drawable/fagner"
+                    android:onClick="irFagner" />
 
             </LinearLayout>
 
@@ -68,13 +71,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton11"
-                    android:src="@drawable/leandro" />
+                    android:src="@drawable/leandro"
+                    android:onClick="irLeandro" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton12"
-                    android:src="@drawable/renan" />
+                    android:src="@drawable/renan"
+                    android:onClick="irRenan" />
             </LinearLayout>
 
         </TableLayout>
